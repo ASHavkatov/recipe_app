@@ -1,10 +1,8 @@
 import 'package:go_router/go_router.dart';
 import 'package:new_recipe_app/core/routess.dart';
+import 'package:new_recipe_app/features/profile_register/presentation/manager/profile_register_viewmodel.dart';
 import 'package:new_recipe_app/features/recipe_detail/presetation/manager/recipe_detail_view_model.dart';
 import 'package:new_recipe_app/features/recipe_detail/presetation/pages/recipe_detail.dart';
-import 'package:new_recipe_app/features/singin/data/repositories/profile_repo.dart';
-import 'package:new_recipe_app/features/singin/presentation/manager/complate_profile_view_model.dart';
-import 'package:new_recipe_app/features/singin/presentation/pages/complate_profile.dart';
 import 'package:provider/provider.dart';
 import '../features/categories/data/repositories/categories_repository.dart';
 import '../features/categories/presentation/manager/categories_view_model.dart';
@@ -16,6 +14,7 @@ import '../features/onboarding/presentation/pages/onboarding_page.dart';
 import '../features/profile/data/repositories/profile_repository.dart';
 import '../features/profile/presentation/pages/profile_page.dart';
 import '../features/profile/presentation/pages/profile_view_model.dart';
+import '../features/profile_register/presentation/pages/profile_register.dart';
 import '../features/recipe_detail/presetation/recipe_detail_repository/recipe_detail_repository.dart';
 import '../features/singin/data/repositories/auth_repository.dart';
 import '../features/singin/presentation/manager/login_view_model.dart';
@@ -25,7 +24,7 @@ import 'client.dart';
 
 class GoRoutes {
   static final GoRouter router = GoRouter(
-    initialLocation: '/recipe-detail/1',
+    initialLocation: Routes.complateProfile,
     routes: [
       GoRoute(
         path: Routes.singup,
@@ -73,7 +72,10 @@ class GoRoutes {
       ),
       GoRoute(
         path: Routes.complateProfile,
-        builder: (context, state) => ComplateProfile(vm: complateProfileViewModel(profileRepo: ComplateProfileRepository(client: ApiClient())),),
+        builder: (context, state) => ChangeNotifierProvider(
+          create:(context)=> RegisterProfileViewModel(),
+          child: RegisterProfile(),
+        ),
       ),
       GoRoute(
         path: Routes.recipeDetail,

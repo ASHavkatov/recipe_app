@@ -7,7 +7,6 @@ import 'package:new_recipe_app/features/profile/data/models/profile_model.dart';
 import '../../data/repositories/profile_repo.dart';
 
 class complateProfileViewModel extends ChangeNotifier{
-
   complateProfileViewModel({ required ComplateProfileRepository profileRepo}) : _profileRepo = profileRepo{
     // load();
   }
