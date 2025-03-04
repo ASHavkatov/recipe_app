@@ -3,6 +3,7 @@ import 'package:new_recipe_app/core/routess.dart';
 import 'package:new_recipe_app/features/profile_register/presentation/manager/profile_register_viewmodel.dart';
 import 'package:new_recipe_app/features/recipe_detail/presetation/manager/recipe_detail_view_model.dart';
 import 'package:new_recipe_app/features/recipe_detail/presetation/pages/recipe_detail.dart';
+import 'package:new_recipe_app/features/your_recipe/presentation/pages/your_recipe_view.dart';
 import 'package:provider/provider.dart';
 import '../features/categories/data/repositories/categories_repository.dart';
 import '../features/categories/presentation/manager/categories_view_model.dart';
@@ -24,7 +25,8 @@ import 'client.dart';
 
 class GoRoutes {
   static final GoRouter router = GoRouter(
-    initialLocation: Routes.complateProfile,
+    initialLocation: Routes.yourRecipe,
+    // initialLocation: '/recipe-detail/1',
     routes: [
       GoRoute(
         path: Routes.singup,
@@ -73,7 +75,7 @@ class GoRoutes {
       GoRoute(
         path: Routes.complateProfile,
         builder: (context, state) => ChangeNotifierProvider(
-          create:(context)=> RegisterProfileViewModel(),
+          create: (context) => RegisterProfileViewModel(),
           child: RegisterProfile(),
         ),
       ),
@@ -86,6 +88,10 @@ class GoRoutes {
           ),
           child: RecipeDetailPage(),
         ),
+      ),
+      GoRoute(
+        path: Routes.yourRecipe,
+        builder: (context, state) => YourRecipeView(),
       ),
     ],
   );

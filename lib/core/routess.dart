@@ -10,4 +10,5 @@ class Routes{
   static const complateProfile='/complateProfile';
 
   static const recipeDetail = '/recipe-detail/:recipeId';
+  static const yourRecipe ='/yourRecipe';
 }
