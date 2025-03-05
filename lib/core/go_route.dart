@@ -16,7 +16,7 @@ import '../features/profile/data/repositories/profile_repository.dart';
 import '../features/profile/presentation/pages/profile_page.dart';
 import '../features/profile/presentation/pages/profile_view_model.dart';
 import '../features/profile_register/presentation/pages/profile_register.dart';
-import '../features/recipe_detail/presetation/recipe_detail_repository/recipe_detail_repository.dart';
+import '../features/recipe_detail/domain/repository/recipe_detail_repository.dart';
 import '../features/singin/data/repositories/auth_repository.dart';
 import '../features/singin/presentation/manager/login_view_model.dart';
 import '../features/singin/presentation/pages/login_view.dart';
@@ -25,8 +25,8 @@ import 'client.dart';
 
 class GoRoutes {
   static final GoRouter router = GoRouter(
-    initialLocation: Routes.yourRecipe,
-    // initialLocation: '/recipe-detail/1',
+    // initialLocation: Routes.complateProfile,
+    initialLocation: '/recipe-detail/1',
     routes: [
       GoRoute(
         path: Routes.singup,

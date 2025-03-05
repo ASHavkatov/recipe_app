@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:new_recipe_app/core/utils/app_colors.dart';
-import 'package:new_recipe_app/features/singin/presentation/widgets/app_bar.dart';
 
 class YourRecipeView extends StatelessWidget {
   const YourRecipeView({super.key});
@@ -11,10 +10,63 @@ class YourRecipeView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.MainColor,
-        leading: Center(
-          child: SvgPicture.asset('assets/icons/back-arrow.svg'),
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Hi! Dianne',
+              style: TextStyle(
+                color: AppColors.ReddishPink,
+                fontWeight: FontWeight.w400,
+                fontSize: 25,
+              ),
+            ),
+            Text(
+              'What are you cooking today',
+              style: TextStyle(
+                fontWeight: FontWeight.w400,
+                fontSize: 14,
+              ),
+            ),
+          ],
         ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              children: [
+                Container(
+                  width: 28,
+                  height: 28,
+                  decoration: BoxDecoration(
+                    color: AppColors.Pink,
+                    borderRadius: BorderRadius.circular(14),
+                  ),
+                  child: Center(child: SvgPicture.asset('assets/icons/notification.svg')),
+                ),
+                SizedBox(width: 5),
+                Container(
+                  width: 28,
+                  height: 28,
+                  decoration: BoxDecoration(
+                    color: AppColors.Pink,
+                    borderRadius: BorderRadius.circular(14),
+                  ),
+                  child: Center(child: SvgPicture.asset('assets/icons/search.svg')),
+                  ),
+              ],
+            ),
+          )
+        ],
+      ),
+      body: ListView(
+        children: [
+          Column(
+            children: [
 
+            ],
+          )
+        ],
       ),
     );
   }

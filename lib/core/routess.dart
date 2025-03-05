@@ -8,7 +8,6 @@ class Routes{
   static const singup = '/singup';
   static const categoryDetail = 'categories/:id';
   static const complateProfile='/complateProfile';
-
   static const recipeDetail = '/recipe-detail/:recipeId';
   static const yourRecipe ='/yourRecipe';
 }

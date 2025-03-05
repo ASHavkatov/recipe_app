@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../recipe_detail/presetation/recipe_detail_repository/recipe_detail_repository.dart';
+import '../../../recipe_detail/domain/repository/recipe_detail_repository.dart';
 import '../../data/models/profile_model.dart';
 import '../../data/models/recipes_model.dart';
 import '../../data/repositories/profile_repository.dart';

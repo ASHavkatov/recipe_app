@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import '../../../recipe_detail/presetation/recipe_detail_repository/recipe_detail_repository.dart';
+import '../../../recipe_detail/domain/repository/recipe_detail_repository.dart';
 import '../../data/models/recipes_model.dart';
 
 class RecipeViewModel extends ChangeNotifier {

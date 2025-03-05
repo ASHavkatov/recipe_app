@@ -3,7 +3,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:new_recipe_app/core/sizes.dart';
 import 'package:new_recipe_app/core/utils/app_colors.dart';
 import 'package:new_recipe_app/features/recipe_detail/presetation/manager/recipe_detail_view_model.dart';
+import 'package:new_recipe_app/features/recipe_detail/presetation/pages/recipe_detail_instructions.dart';
 import 'package:provider/provider.dart';
+
+import '../widgets/profile_recipe_info.dart';
+import '../widgets/recipe_detail_description.dart';
+import '../widgets/recipe_detail_ingredients.dart';
+import '../widgets/recipe_detail_instructions.dart';
 
 class RecipeDetailPage extends StatelessWidget {
   RecipeDetailPage({super.key});
@@ -37,12 +43,13 @@ class RecipeDetailPage extends StatelessWidget {
                   width: 28,
                   height: 28,
                   decoration: BoxDecoration(
-                    color: AppColors.ReddishPink,
+                    color: AppColors.Pink,
                     borderRadius: BorderRadius.circular(14),
                   ),
                   child: Center(
                     child: SvgPicture.asset(
                       'assets/icons/heart.svg',
+                      colorFilter: ColorFilter.mode(AppColors.PinkSub, BlendMode.srcIn),
                     ),
                   ),
                 ),
@@ -53,12 +60,13 @@ class RecipeDetailPage extends StatelessWidget {
                   width: 28,
                   height: 28,
                   decoration: BoxDecoration(
-                    color: AppColors.ReddishPink,
+                    color: AppColors.Pink,
                     borderRadius: BorderRadius.circular(14),
                   ),
                   child: Center(
                     child: SvgPicture.asset(
                       'assets/icons/share.svg',
+                      colorFilter: ColorFilter.mode(AppColors.PinkSub, BlendMode.srcIn),
                     ),
                   ),
                 ),
@@ -68,7 +76,7 @@ class RecipeDetailPage extends StatelessWidget {
         ],
       ),
       body: ListView(
-        padding: EdgeInsets.only(left: AppSizes.padding36, right: AppSizes.padding36, top: 27),
+        padding: EdgeInsets.only(left: AppSizes.padding36, right: AppSizes.padding36, top: 27, bottom: 140),
         children: [
           Container(
             width: 356,
@@ -129,69 +137,46 @@ class RecipeDetailPage extends StatelessWidget {
             ),
           ),
           SizedBox(height: 26),
-          ProfileRecipeInfo()
+          ProfileRecipeInfo(),
+          SizedBox(height: 20),
+          Container(
+            width: 356,
+            height: 1,
+            color: AppColors.Pink,
+          ),
+          SizedBox(height: 30),
+          RecipeDetailDescription(),
+          SizedBox(height: 30),
+          RecipeDetailIngredients(),
+          SizedBox(height: 30),
+          RecipeDetailInstructions()
         ],
+
       ),
+      bottomSheet: BottomNavigationBarr(),
     );
   }
 }
 
-class ProfileRecipeInfo extends StatelessWidget {
-  const ProfileRecipeInfo({super.key});
+class BottomNavigationBarr extends StatelessWidget {
+  const BottomNavigationBarr({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final vm = context.watch<RecipeDetailViewModel>();
-    if (vm.isLoading) {
-      return Center(child: CircularProgressIndicator());
-    }
-    return SizedBox(
-      width: 356 * AppSizes.wRatio,
-      height: 63 * AppSizes.hRatio,
+    return Container(
+      width: 56,
+      height: 36,
+      decoration: BoxDecoration(
+        color: AppColors.ReddishPink,
+        borderRadius: BorderRadius.circular(33),
+      ),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(30),
-            child: Image.network(vm.recipe.user.profilePhoto),
-          ),
-          SizedBox(width: 15 * AppSizes.wRatio),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                vm.recipe.user.userName,
-                style: TextStyle(
-                  color: AppColors.ReddishPink,
-                  fontWeight: FontWeight.w400,
-                  fontSize: 12,
-                ),
-              ),
-              Text(
-                "${vm.recipe.user.firstName} ${vm.recipe.user.lastName}",
-                style: TextStyle(
-                  fontWeight: FontWeight.w300,
-                  fontSize: 14,
-                ),
-              ),
-            ],
-          ),
-          SizedBox(width: 70 * AppSizes.wRatio),
-          Container(
-            width: 109,
-            height: 21,
-            decoration: BoxDecoration(color: AppColors.Pink, borderRadius: BorderRadius.circular(21)),
-            child: Text(
-              'Following',
-              style: TextStyle(
-                color: AppColors.PinkSub,
-              ),
-              textAlign: TextAlign.center,
-            ),
-          ),
-          SizedBox(width: 9),
-          SvgPicture.asset('assets/icons/more.svg'),
+          SvgPicture.asset('assets/icons/home.svg'),
+          SvgPicture.asset('assets/icons/community.svg'),
+          SvgPicture.asset('assets/icons/category_item.svg'),
+          SvgPicture.asset('assets/icons/profile.svg8'),
         ],
       ),
     );
