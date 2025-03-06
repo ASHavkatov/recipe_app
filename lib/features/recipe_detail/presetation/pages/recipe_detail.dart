@@ -3,13 +3,12 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:new_recipe_app/core/sizes.dart';
 import 'package:new_recipe_app/core/utils/app_colors.dart';
 import 'package:new_recipe_app/features/recipe_detail/presetation/manager/recipe_detail_view_model.dart';
-import 'package:new_recipe_app/features/recipe_detail/presetation/pages/recipe_detail_instructions.dart';
+import 'package:new_recipe_app/features/recipe_detail/presetation/widgets/recipe_detail_intstruction_all.dart';
 import 'package:provider/provider.dart';
-
+import '../widgets/BottomNavBarr.dart';
 import '../widgets/profile_recipe_info.dart';
 import '../widgets/recipe_detail_description.dart';
 import '../widgets/recipe_detail_ingredients.dart';
-import '../widgets/recipe_detail_instructions.dart';
 
 class RecipeDetailPage extends StatelessWidget {
   RecipeDetailPage({super.key});
@@ -76,7 +75,7 @@ class RecipeDetailPage extends StatelessWidget {
         ],
       ),
       body: ListView(
-        padding: EdgeInsets.only(left: AppSizes.padding36, right: AppSizes.padding36, top: 27, bottom: 140),
+        padding: EdgeInsets.only(left: AppSizes.padding36, right: AppSizes.padding36, top: 27, bottom: 130),
         children: [
           Container(
             width: 356,
@@ -149,36 +148,15 @@ class RecipeDetailPage extends StatelessWidget {
           SizedBox(height: 30),
           RecipeDetailIngredients(),
           SizedBox(height: 30),
-          RecipeDetailInstructions()
+          RecipeDetailIntstructionAll(vm: vm),
         ],
-
       ),
-      bottomSheet: BottomNavigationBarr(),
+      bottomSheet: Padding(
+        padding: const EdgeInsets.only(bottom: 34),
+        child: BottomNavigationBarr(),
+      ),
     );
   }
 }
 
-class BottomNavigationBarr extends StatelessWidget {
-  const BottomNavigationBarr({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 56,
-      height: 36,
-      decoration: BoxDecoration(
-        color: AppColors.ReddishPink,
-        borderRadius: BorderRadius.circular(33),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          SvgPicture.asset('assets/icons/home.svg'),
-          SvgPicture.asset('assets/icons/community.svg'),
-          SvgPicture.asset('assets/icons/category_item.svg'),
-          SvgPicture.asset('assets/icons/profile.svg8'),
-        ],
-      ),
-    );
-  }
-}

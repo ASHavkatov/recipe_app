@@ -38,7 +38,17 @@ class ApiClient {
       throw Exception("Error 404");
     }
   }
-
+  Future<List<dynamic>>fetchYourRecipes() async{
+    var response = await dio.get('/recipes/list?Limit=2');
+    if (response.statusCode == 200) {
+      List<dynamic> data = response.data;
+      return data;
+    }  else{
+      throw Exception('Your recipes da hatolik bor');
+    }
+  }
+  
+  
   Future<List<dynamic>> fetchOnBoarding() async {
     var response = await dio.get('/onboarding/list');
     if (response.statusCode == 200) {
@@ -69,6 +79,17 @@ class ApiClient {
       throw Exception("Error");
     }
   }
+
+  Future<dynamic>fetchTrendingRecipe(int categoryId) async{
+    var response = await dio.get('/recipes/trending-recipe');
+    if(response.statusCode == 200){
+      List<dynamic> data = response.data;
+      return data;
+    }else{
+     throw Exception('trending recipesda xato bor');
+    }
+  }
+
 
   Future<dynamic> fetchRecipesById(int recipeId)async{
     var response = await dio.get('/recipes/detail/$recipeId');
