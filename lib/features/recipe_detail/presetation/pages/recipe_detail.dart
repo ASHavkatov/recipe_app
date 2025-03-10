@@ -3,6 +3,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:new_recipe_app/core/sizes.dart';
 import 'package:new_recipe_app/core/utils/app_colors.dart';
 import 'package:new_recipe_app/features/recipe_detail/presetation/manager/recipe_detail_view_model.dart';
+<<<<<<< HEAD
+=======
+import 'package:new_recipe_app/features/recipe_detail/presetation/widgets/recipe_app_bar.dart';
+>>>>>>> 36711fb (init commit)
 import 'package:new_recipe_app/features/recipe_detail/presetation/widgets/recipe_detail_intstruction_all.dart';
 import 'package:provider/provider.dart';
 import '../widgets/BottomNavBarr.dart';
@@ -20,6 +24,7 @@ class RecipeDetailPage extends StatelessWidget {
       return Center(child: CircularProgressIndicator());
     }
     return Scaffold(
+<<<<<<< HEAD
       appBar: AppBar(
         leading: Center(
           child: SvgPicture.asset('assets/icons/back-arrow.svg'),
@@ -74,6 +79,9 @@ class RecipeDetailPage extends StatelessWidget {
           ),
         ],
       ),
+=======
+      appBar: RecipeAppBar(title: 'Trending Recipes', actions: [],),
+>>>>>>> 36711fb (init commit)
       body: ListView(
         padding: EdgeInsets.only(left: AppSizes.padding36, right: AppSizes.padding36, top: 27, bottom: 130),
         children: [
@@ -151,10 +159,13 @@ class RecipeDetailPage extends StatelessWidget {
           RecipeDetailIntstructionAll(vm: vm),
         ],
       ),
+<<<<<<< HEAD
       bottomSheet: Padding(
         padding: const EdgeInsets.only(bottom: 34),
         child: BottomNavigationBarr(),
       ),
+=======
+>>>>>>> 36711fb (init commit)
     );
   }
 }

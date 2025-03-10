@@ -11,7 +11,10 @@ class CategoriesRepository {
 
   Future<List<CategoryModel>> fetchCategories() async {
     var rawCategories = await client.fetchCategories();
+<<<<<<< HEAD
 
+=======
+>>>>>>> 36711fb (init commit)
     categoriesModel =
         rawCategories.map((json) => CategoryModel.fromJson(json)).toList();
 

@@ -8,6 +8,12 @@ class Routes{
   static const singup = '/singup';
   static const categoryDetail = 'categories/:id';
   static const complateProfile='/complateProfile';
+<<<<<<< HEAD
   static const recipeDetail = '/recipe-detail/:recipeId';
   static const yourRecipe ='/yourRecipe';
+=======
+  static const recipeDetail = '/recipe-detail';
+  static const yourRecipe ='/yourRecipe';
+  static const community = '/community';
+>>>>>>> 36711fb (init commit)
 }

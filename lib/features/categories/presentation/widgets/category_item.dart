@@ -11,7 +11,11 @@ class category_item extends StatelessWidget {
   });
 
   final int index;
+<<<<<<< HEAD
   final CategoriesViewModel cvm;
+=======
+  final CategoriesCubit cvm;
+>>>>>>> 36711fb (init commit)
   final String image;
   final String text;
 
@@ -23,13 +27,21 @@ class category_item extends StatelessWidget {
         ClipRRect(
           borderRadius: BorderRadius.circular(13),
           child: Image.network(
+<<<<<<< HEAD
             cvm.categories[index].image,
+=======
+            cvm.state.categories[index].image,
+>>>>>>> 36711fb (init commit)
             width: 158,
             height: 145,
             fit: BoxFit.cover,
           ),
         ),
+<<<<<<< HEAD
         Text(cvm.categories[index].title),
+=======
+        Text(cvm.state.categories[index].title),
+>>>>>>> 36711fb (init commit)
       ],
     );
   }

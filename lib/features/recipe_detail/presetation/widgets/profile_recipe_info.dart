@@ -48,9 +48,15 @@ class ProfileRecipeInfo extends StatelessWidget {
               ),
             ],
           ),
+<<<<<<< HEAD
           SizedBox(width: 70 * AppSizes.wRatio),
           Container(
             width: 109,
+=======
+          SizedBox(width: 10 * AppSizes.wRatio),
+          Container(
+            width: 100,
+>>>>>>> 36711fb (init commit)
             height: 21,
             decoration: BoxDecoration(color: AppColors.Pink, borderRadius: BorderRadius.circular(21)),
             child: Text(

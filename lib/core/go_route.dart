@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 import 'package:go_router/go_router.dart';
 import 'package:new_recipe_app/core/routess.dart';
+=======
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:new_recipe_app/core/routess.dart';
+import 'package:new_recipe_app/features/community/presentation/manager/community_view_model.dart';
+import 'package:new_recipe_app/features/community/presentation/pages/community_view.dart';
+>>>>>>> 36711fb (init commit)
 import 'package:new_recipe_app/features/profile_register/presentation/manager/profile_register_viewmodel.dart';
 import 'package:new_recipe_app/features/recipe_detail/presetation/manager/recipe_detail_view_model.dart';
 import 'package:new_recipe_app/features/recipe_detail/presetation/pages/recipe_detail.dart';
@@ -25,8 +33,13 @@ import 'client.dart';
 
 class GoRoutes {
   static final GoRouter router = GoRouter(
+<<<<<<< HEAD
     // initialLocation: Routes.complateProfile,
     initialLocation: '/recipe-detail/1',
+=======
+    initialLocation: Routes.community,
+    // initialLocation: '/recipe-detail/1',
+>>>>>>> 36711fb (init commit)
     routes: [
       GoRoute(
         path: Routes.singup,
@@ -60,9 +73,15 @@ class GoRoutes {
       ),
       GoRoute(
         path: Routes.categories,
+<<<<<<< HEAD
         builder: (context, state) => CategoriesPage(
           cvm: CategoriesViewModel(
             repo: CategoriesRepository(client: ApiClient()),
+=======
+        builder: (context, state) => BlocProvider(
+          create: (context) => CategoriesCubit(
+            repo: context.read<CategoriesRepository>(),
+>>>>>>> 36711fb (init commit)
           ),
         ),
       ),
@@ -80,6 +99,7 @@ class GoRoutes {
         ),
       ),
       GoRoute(
+<<<<<<< HEAD
         path: Routes.recipeDetail,
         builder: (context, state) => ChangeNotifierProvider(
           create: (context) => RecipeDetailViewModel(
@@ -88,11 +108,36 @@ class GoRoutes {
           ),
           child: RecipeDetailPage(),
         ),
+=======
+        path: '${Routes.recipeDetail}/:recipeId',
+        builder: (context, state) {
+          final recipeId = int.parse(state.pathParameters['recipeId']!);
+          return ChangeNotifierProvider(
+            create: (context) => RecipeDetailViewModel(
+              recipeRepo: context.read(),
+              recipeId: recipeId,
+            ),
+            child: RecipeDetailPage(),
+          );
+        },
+>>>>>>> 36711fb (init commit)
       ),
       GoRoute(
         path: Routes.yourRecipe,
         builder: (context, state) => YourRecipeView(),
       ),
+<<<<<<< HEAD
+=======
+      GoRoute(
+        path: Routes.community,
+        builder: (context, state) => ChangeNotifierProvider(
+          create: (context) => CommunityViewModel(
+            comRepo: context.read(),
+          )..load(),
+          child: CommunityView(),
+        ),
+      ),
+>>>>>>> 36711fb (init commit)
     ],
   );
 }
