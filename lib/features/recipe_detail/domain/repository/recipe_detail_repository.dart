@@ -10,11 +10,6 @@ class RecipeRepository {
 
   Map<int, List<RecipeDetailModel>> recipesByCategory = {};
   RecipeDetailModel? recipe;
-
-<<<<<<< HEAD
-=======
-
->>>>>>> 36711fb (init commit)
   Future<List<RecipeDetailModel>> fetchRecipesByCategory(int categoryId) async {
     if (recipesByCategory.containsKey(categoryId) && recipesByCategory[categoryId] != null){
       return recipesByCategory[categoryId]!;
@@ -32,7 +27,3 @@ class RecipeRepository {
     return recipe!;
   }
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 36711fb (init commit)

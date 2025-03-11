@@ -26,7 +26,7 @@ class ApiClient {
       data: model.toJson(model),
     );
     print(response.statusCode);
-    return response.statusCode == 201 ? true :false;
+    return response.statusCode == 201 ? true : false;
   }
 
   Future<Map<String, dynamic>> fetchMyProfile() async {
@@ -38,21 +38,17 @@ class ApiClient {
       throw Exception("Error 404");
     }
   }
-  Future<List<dynamic>>fetchYourRecipes() async{
+
+  Future<List<dynamic>> fetchYourRecipes() async {
     var response = await dio.get('/recipes/list?Limit=2');
     if (response.statusCode == 200) {
       List<dynamic> data = response.data;
       return data;
-    }  else{
+    } else {
       throw Exception('Your recipes da hatolik bor');
     }
   }
-<<<<<<< HEAD
-=======
 
->>>>>>> 36711fb (init commit)
-  
-  
   Future<List<dynamic>> fetchOnBoarding() async {
     var response = await dio.get('/onboarding/list');
     if (response.statusCode == 200) {
@@ -84,44 +80,39 @@ class ApiClient {
     }
   }
 
-  Future<dynamic>fetchTrendingRecipe(int categoryId) async{
+  Future<dynamic> fetchTrendingRecipe(int categoryId) async {
     var response = await dio.get('/recipes/trending-recipe');
-    if(response.statusCode == 200){
+    if (response.statusCode == 200) {
       List<dynamic> data = response.data;
       return data;
-    }else{
-     throw Exception('trending recipesda xato bor');
+    } else {
+      throw Exception('trending recipesda xato bor');
     }
   }
-<<<<<<< HEAD
-=======
- Future<List<Map<String,dynamic>>> fetchCommunityRecipes({required String? order, bool? descending})async{
-    var response =  await dio.get('/recipes/community/list?Order=$order&Descending=$descending');
-    if(response.statusCode == 200){
-      if(response.data is List){
+
+  Future<List<Map<String, dynamic>>> fetchCommunityRecipes({required String? order, bool? descending}) async {
+    var response = await dio.get('/recipes/community/list?Order=$order&Descending=$descending');
+    if (response.statusCode == 200) {
+      if (response.data is List) {
         return List<Map<String, dynamic>>.from(response.data);
-      }else{
+      } else {
         throw Exception('List emas');
       }
-    }else{
+    } else {
       throw Exception('trending community xato bor');
     }
   }
 
->>>>>>> 36711fb (init commit)
-
-
-  Future<dynamic> fetchRecipesById(int recipeId)async{
+  Future<dynamic> fetchRecipesById(int recipeId) async {
     var response = await dio.get('/recipes/detail/$recipeId');
-    dynamic data =  response.data;
+    dynamic data = response.data;
     return data;
   }
 
   Future uploadProfilePhoto(File file) async {
     FormData formData = FormData.fromMap(
       {
-        "profilePhoto": await MultipartFile.fromFile(file.path,
-            filename: file.path.split('/').last),
+        "profilePhoto": await MultipartFile.fromFile(file.path, filename: file.path.split('/').last),
       },
     );
     var response = await dio.post(
@@ -137,5 +128,4 @@ class ApiClient {
       return false;
     }
   }
-
 }
