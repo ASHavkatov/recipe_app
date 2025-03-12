@@ -9,6 +9,7 @@ import 'package:new_recipe_app/features/community/presentation/pages/community_v
 import 'package:new_recipe_app/features/profile_register/presentation/manager/profile_register_viewmodel.dart';
 import 'package:new_recipe_app/features/recipe_detail/presetation/manager/recipe_detail_view_model.dart';
 import 'package:new_recipe_app/features/recipe_detail/presetation/pages/recipe_detail.dart';
+import 'package:new_recipe_app/features/recipe_review/presentation/pages/recipe_review_view.dart';
 import 'package:new_recipe_app/features/your_recipe/presentation/pages/your_recipe_view.dart';
 import 'package:provider/provider.dart';
 import '../features/categories/data/repositories/categories_repository.dart';
@@ -31,7 +32,7 @@ import 'client.dart';
 
 class GoRoutes {
   static final GoRouter router = GoRouter(
-    initialLocation: Routes.community,
+    initialLocation: Routes.recipeReview,
     // initialLocation: '/recipe-detail/1',
     routes: [
       GoRoute(
@@ -111,6 +112,9 @@ class GoRoutes {
           )..load(),
           child: CommunityView(),
         ),
+      ),
+      GoRoute(path: Routes.recipeReview,
+        builder: (context, state)=> RecipeReviewView()
       ),
     ],
   );

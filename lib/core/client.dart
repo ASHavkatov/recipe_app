@@ -49,7 +49,7 @@ class ApiClient {
     }
   }
 
-  Future<List<dynamic>> fetchOnBoarding() async {
+   Future<List<dynamic>> fetchOnBoarding() async {
     var response = await dio.get('/onboarding/list');
     if (response.statusCode == 200) {
       List<dynamic> data = response.data;

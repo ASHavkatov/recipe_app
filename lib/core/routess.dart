@@ -12,4 +12,5 @@ class Routes{
   static const recipeDetail = '/recipe-detail';
   static const yourRecipe ='/yourRecipe';
   static const community = '/community';
+  static const recipeReview = '/recipeReview';
 }
