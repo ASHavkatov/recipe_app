@@ -72,17 +72,20 @@ class TopChefsSectionImageTitle extends StatelessWidget {
                           SizedBox(
                             width: 44.w,
                             height: 14.h,
-                            child: ElevatedButton(
-                                onPressed: () {},
-                                style: ElevatedButton.styleFrom(
-                                    foregroundColor: Colors.white,
-                                    backgroundColor: AppColors.pinkSub),
-                                child: Center(
-                                  child: Text(
-                                    'Following',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 8),
+                            child: GestureDetector(
+                                onTap: () {},
+                                child: Container(
+                                  width: 43,
+                                  height: 14,
+                                  decoration: BoxDecoration(color: AppColors.redPinkMain, borderRadius: BorderRadius.circular(10)),
+                                  child: Center(
+                                    child: Text(
+                                      'Following',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w400,
+                                          color: Colors.white,
+                                          fontSize: 8),
+                                    ),
                                   ),
                                 )),
                           ),

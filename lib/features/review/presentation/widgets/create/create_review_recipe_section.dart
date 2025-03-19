@@ -68,7 +68,7 @@ class CreateReviewRecipeSection extends StatelessWidget {
           return Center(
             child: SizedBox.fromSize(
               size: Size(double.infinity, 262.h),
-              child: Text("Something went wrong fetching the Image."),
+              child: Center(child: Text("Something went wrong fetching the Image.", style: TextStyle(color: Colors.white),)),
             ),
           );
         }

@@ -14,6 +14,7 @@ class RecipeReviewAppBar extends StatelessWidget implements PreferredSizeWidget{
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 37),
       child: AppBar(
+        surfaceTintColor: AppColors.beigeColor,
         backgroundColor: AppColors.beigeColor,
         centerTitle: true,
         leading: Center(

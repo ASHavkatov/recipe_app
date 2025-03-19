@@ -25,13 +25,14 @@ class CreateReviewView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.beigeColor,
       extendBody: true,
       appBar: RecipeReviewAppBar(
         title: "Leave A Review",
       ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 36.w),
-        child: BlocListener<CreateReviewBloc, CreateReviewState>(
+      body: ListView(
+        padding: EdgeInsets.only(left: 36, right: 36, bottom: 100),
+        children:[ BlocListener<CreateReviewBloc, CreateReviewState>(
             listener: (context, state) async {
               if (state.status == CreateReviewStatus.submitted) {
                 await showDialog(
@@ -112,6 +113,7 @@ class CreateReviewView extends StatelessWidget {
                 AddReviewElevatedButtons()
               ],
             )),
+        ]
       ),
       bottomNavigationBar: RecipeBottomNavigationBar(),
     );

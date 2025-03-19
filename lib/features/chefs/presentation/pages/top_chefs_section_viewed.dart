@@ -40,7 +40,28 @@ class TopChefsSectionViewed extends StatelessWidget {
               )
             ],
           ),
-        )
+        ),
+        SizedBox(height: 15),
+        Text('Most Liked chefs', style: TextStyle(color: AppColors.redPinkMain, fontSize: 15,),textAlign: TextAlign.start,),
+        SizedBox(height: 15),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            TopChefsSectionImageTitle(image: 'assets/images/daniel.png', title: 'DanielMartines', username: '@don-chef', rating: 6687),
+            TopChefsSectionImageTitle(image: 'assets/images/aria.png', title: 'Aria Chang', username: '@ariachang-chef', rating: 6687),
+          ],
+        ),
+        SizedBox(height: 15),
+        Text('New Chefs', style: TextStyle(color: AppColors.redPinkMain, fontSize: 15,),textAlign: TextAlign.start,),
+        SizedBox(height: 15),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            TopChefsSectionImageTitle(image: 'assets/images/lily.png', title: 'Lily chef Chen', username: '@lily', rating: 6687),
+            TopChefsSectionImageTitle(image: 'assets/images/edvarfd.png', title: 'Edvard Jones', username: '@edward', rating: 6687),
+          ],
+        ),
+
       ],
     );
   }

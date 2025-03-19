@@ -117,8 +117,10 @@ late final Dio dio;
   Future<T> genericGetRequest<T>(String path, {Map<String, dynamic>? queryParams}) async {
     var response = await dio.get(path, queryParameters: queryParams);
     if (response.statusCode == 200) {
+
       return response.data as T;
     } else {
+      print('${response.data}, 1111111111111111111');
       throw DioException(requestOptions: response.requestOptions, response: response);
     }
   }
