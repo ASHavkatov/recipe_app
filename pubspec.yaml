@@ -42,6 +42,7 @@ flutter:
   assets:
     - assets/svg/
     - assets/images/
+    - assets/top_chefs/
 
   fonts:
     - family: Poppins

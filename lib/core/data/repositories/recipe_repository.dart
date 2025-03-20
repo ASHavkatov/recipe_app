@@ -1,7 +1,7 @@
 import 'package:recipe_app/core/client.dart';
 import 'package:recipe_app/core/data/models/recipe_model_small.dart';
 import 'package:recipe_app/core/data/models/recipe_reviews_model.dart';
-import 'package:recipe_app/core/data/models/top_chef_model_small.dart';
+import 'package:recipe_app/core/data/models/top_chef/top_chef_model_small.dart';
 import 'package:recipe_app/features/recipe_detail/data/models/recipes_model.dart';
 
 import '../../../features/categories_detail/data/models/categories_detail_model.dart';
