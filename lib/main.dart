@@ -6,6 +6,7 @@ import 'package:recipe_app/core/dependencies.dart' show providers;
 import 'package:recipe_app/core/l10n/localization.dart';
 import 'core/l10n/app_localizations.dart';
 import 'core/routing/router.dart';
+
 final navigatorKey = GlobalKey<NavigatorState>();
 
 

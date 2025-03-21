@@ -16,7 +16,7 @@ class TrendingRecipeDescHome extends StatelessWidget {
         Text(
           "This is a quick overview of the ingredients...",
           style: TextStyle(
-              color: Colors.white, fontWeight: FontWeight.w300, fontSize: 13),
+              color: Colors.black, fontWeight: FontWeight.w300, fontSize: 13),
         ),
         Row(
           children: [

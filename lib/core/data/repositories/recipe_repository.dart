@@ -8,6 +8,8 @@ import '../../../features/categories_detail/data/models/categories_detail_model.
 import '../../../features/community/data/models/community_model.dart';
 import '../models/recipe_create_review_model.dart';
 import '../models/recipe_reviews_comment_model.dart';
+import '../models/trending_recipes/trending_recipe_model.dart';
+import '../models/trending_recipes/trending_recipes_model.dart';
 
 
 class RecipeRepository{
@@ -25,6 +27,7 @@ class RecipeRepository{
   List<TopChefModelSmall> chefs= [];
   List<RecipeModelSmall> recentRecipes = [];
   List<ReviewCommentModel> comment = [];
+  List<TrendingRecipesModel> recipes = [];
 
 
   Future<CategoriesDetailModel?> fetchTrendingRecipe()async{
@@ -66,6 +69,15 @@ class RecipeRepository{
     var rawCommunity = await client.fetchCommunity(limit, order, descending);
     community = rawCommunity.map((community)=>CommunityModel.fromJson(community)).toList();
     return community;
+  }
+  Future<List<TrendingRecipesModel>>fetchTrendingRecipes()async{
+    var rawRecipes = await client.genericGetRequest<List<dynamic>>('/recipes/trending-recipes');
+    recipes = rawRecipes.map((recipes) => TrendingRecipesModel.fromJson(recipes)).toList();
+    return recipes;
+  }
+  Future<TrendingRecipeModel>fetchRecipeTrending()async{
+    var rawRecipe = await client.fetchTrendingRecipe();
+    return TrendingRecipeModel.fromJson(rawRecipe);
   }
 
 }

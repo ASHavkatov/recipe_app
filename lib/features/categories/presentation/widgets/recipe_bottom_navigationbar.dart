@@ -86,7 +86,7 @@ class _BottomNavigationBarShadow extends StatelessWidget {
       height: 100,
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [Colors.black, Colors.transparent],
+          colors: [AppColors.beigeColor.withValues(alpha: 0.5), Colors.transparent],
           begin: Alignment.bottomCenter,
           end: Alignment.topCenter,
         ),

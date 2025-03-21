@@ -1,6 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+import 'package:recipe_app/core/client.dart';
+import 'package:recipe_app/core/data/repositories/recipe_repository.dart';
 import 'package:recipe_app/core/routing/routes.dart';
 import 'package:recipe_app/features/categories/presentation/manager/categories_cubit.dart';
 import 'package:recipe_app/features/categories/presentation/pages/categories_view.dart';
@@ -17,6 +19,8 @@ import 'package:recipe_app/features/review/presentation/manager/reviews/reviews_
 import 'package:recipe_app/features/review/presentation/pages/add_review.dart';
 import 'package:recipe_app/features/review/presentation/pages/review_view.dart';
 import 'package:recipe_app/features/sign_up/presentation/pages/complete_profile_view.dart';
+import 'package:recipe_app/features/trending_recipes/blocs/trending_bloc.dart';
+import 'package:recipe_app/features/trending_recipes/pages/trending_recipes_view.dart';
 import '../../features/categories/data/models/categories_model.dart';
 import '../../features/onboarding/presentation/manager/onboarding_view_model.dart';
 import '../../features/onboarding/presentation/pages/onboarding_view.dart';
@@ -27,7 +31,7 @@ import '../../main.dart';
 
 final GoRouter router = GoRouter(
   navigatorKey: navigatorKey,
-  initialLocation: Routes.topChesProfile,
+  initialLocation: Routes.trendingRecipe,
   routes: [
     GoRoute(
         path: Routes.home,
@@ -116,5 +120,18 @@ final GoRouter router = GoRouter(
       path: Routes.topChesProfile,
       builder: (context, state) => TopChefsProfileView(),
     ),
+    GoRoute(
+      path: Routes.trendingRecipe,
+      builder: (context, state) => BlocProvider(
+        create: (context) => TrendingBloc(
+          trendRepo: RecipeRepository(
+            client: ApiClient(),
+          ),
+        ),child: TrendingRecipesView(),
+      ),
+    ),
+    // GoRoute(path: Routes.trendingRecipe,
+    //   builder: (context, state)=> TrendingRecipesView(),
+    // )
   ],
 );
