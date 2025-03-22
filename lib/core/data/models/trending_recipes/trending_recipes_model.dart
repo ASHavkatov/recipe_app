@@ -1,9 +1,9 @@
 class TrendingRecipesModel {
   final int id, categoryId;
-  final String title, desc;
+  final String title, desc, difficulty;
   final String photo;
   final num rating;
-  final DateTime timeRequired;
+  final int timeRequired;
 
   TrendingRecipesModel({
     required this.id,
@@ -13,6 +13,7 @@ class TrendingRecipesModel {
     required this.photo,
     required this.rating,
     required this.timeRequired,
+    required this.difficulty
   });
 
   factory TrendingRecipesModel.fromJson(Map<String, dynamic> json) {
@@ -23,7 +24,8 @@ class TrendingRecipesModel {
       desc: json['description'],
       photo: json['photo'],
       rating: json['rating'],
-      timeRequired: DateTime.parse(json['timeRequired']),
+      difficulty: json['difficulty'],
+      timeRequired: json['timeRequired'],
     );
   }
 }

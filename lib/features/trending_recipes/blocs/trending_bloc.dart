@@ -15,13 +15,13 @@ class TrendingBloc extends Bloc<TrendingEvent, TrendingRecipeState> {
   Future<void> _onLoad(TrendingLoading event, Emitter<TrendingRecipeState> emit) async {
     emit(
       state.copyWith(
-        trendingRecipesStatus: TrendingRecipeStatus.loading,
-        trendingRecipeStatus: TrendingRecipeStatus.loading,
+        trendingRecipesStatus: TrendingRecipesStatus.loading,
+        trendingRecipeStatus: TrendingRecipesStatus.loading,
       ),
     );
     final trendingRecipes = await _trendRepo.fetchTrendingRecipes();
-    emit(state.copyWith(trendingRecipes: trendingRecipes, trendingRecipesStatus: TrendingRecipeStatus.success));
+    emit(state.copyWith(trendingRecipes: trendingRecipes, trendingRecipesStatus: TrendingRecipesStatus.success));
     final trendingRecipe =await _trendRepo.fetchRecipeTrending();
-    emit(state.copyWith(trendingRecipe: trendingRecipe, trendingRecipeStatus: TrendingRecipeStatus.success));
+    emit(state.copyWith(trendingRecipe: trendingRecipe, trendingRecipeStatus: TrendingRecipesStatus.success));
   }
 }
