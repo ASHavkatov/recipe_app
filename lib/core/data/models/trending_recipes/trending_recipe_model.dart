@@ -3,7 +3,7 @@ class TrendingRecipeModel {
   final String title, desc;
   final String photo;
   final num rating;
-  final DateTime timeRequired;
+  final int timeRequired;
 
   TrendingRecipeModel({
     required this.id,
@@ -23,7 +23,7 @@ class TrendingRecipeModel {
       desc: json['description'],
       photo: json['photo'],
       rating: json['rating'],
-      timeRequired: DateTime.parse(json['timeRequired']),
+      timeRequired: json['timeRequired'],
     );
   }
 }

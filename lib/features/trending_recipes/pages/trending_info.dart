@@ -4,10 +4,10 @@ import 'package:flutter_svg/svg.dart';
 import '../../../core/utils/colors.dart';
 
 class TrendingRecipesInfo extends StatelessWidget {
-  const TrendingRecipesInfo({super.key,required this.title1, required this.title2, required this.title3, required this.text1, required this.text2, required this.text3});
+  const TrendingRecipesInfo({super.key,required this.title, required this.desc, required this.timeRequired, required this.dificult, required this.rating});
 
-  final title1, title2, title3;
-  final String text1, text2, text3;
+  final title, desc;
+  final String timeRequired, dificult, rating;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class TrendingRecipesInfo extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            title1,
+            title,
             style: TextStyle(
               color: Colors.black,
               fontSize: 12,
@@ -26,7 +26,7 @@ class TrendingRecipesInfo extends StatelessWidget {
             ),
           ),
           Text(
-            title2,
+            desc,
             style: TextStyle(
               height: 1,
               color: Colors.black,
@@ -34,21 +34,14 @@ class TrendingRecipesInfo extends StatelessWidget {
               fontWeight: FontWeight.w300,
             ),
           ),
-          Text(
-            title3,
-            style: TextStyle(
-              color: AppColors.redPinkMain,
-              fontWeight: FontWeight.w300,
-              fontSize: 12,
-            ),
-          ),
+
           Row(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               SvgPicture.asset('assets/svg/clock.svg'),
               SizedBox(width: 3),
               Text(
-                text1,
+                timeRequired,
                 style: TextStyle(
                   color: AppColors.redPinkMain,
                   fontWeight: FontWeight.w300,
@@ -57,7 +50,7 @@ class TrendingRecipesInfo extends StatelessWidget {
               ),
               SizedBox(width: 22),
               Text(
-                text2,
+                dificult,
                 style: TextStyle(
                   color: AppColors.redPinkMain,
                   fontWeight: FontWeight.w300,
@@ -67,7 +60,7 @@ class TrendingRecipesInfo extends StatelessWidget {
               SvgPicture.asset('assets/svg/medium.svg'),
               SizedBox(width: 30),
               Text(
-                text3,
+                rating,
                 style: TextStyle(
                   color: AppColors.redPinkMain,
                   fontWeight: FontWeight.w300,

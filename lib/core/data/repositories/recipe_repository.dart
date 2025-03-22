@@ -76,7 +76,7 @@ class RecipeRepository{
     return recipes;
   }
   Future<TrendingRecipeModel>fetchRecipeTrending()async{
-    var rawRecipe = await client.fetchTrendingRecipe();
+    var rawRecipe = await client.genericGetRequest<dynamic>('/recipes/trending-recipe');
     return TrendingRecipeModel.fromJson(rawRecipe);
   }
 
