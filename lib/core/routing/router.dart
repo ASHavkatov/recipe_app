@@ -8,6 +8,7 @@ import 'package:recipe_app/features/categories/presentation/manager/categories_c
 import 'package:recipe_app/features/categories/presentation/pages/categories_view.dart';
 import 'package:recipe_app/features/categories_detail/presentation/manager/categories_detail_view_model.dart';
 import 'package:recipe_app/features/categories_detail/presentation/pages/categories_detail_view.dart';
+import 'package:recipe_app/features/chefs/blocs/top_chef_bloc.dart';
 import 'package:recipe_app/features/chefs/presentation/pages/top_chefs_pages/top_chefs_view.dart';
 import 'package:recipe_app/features/chefs/presentation/pages/top_chefs_profile_pages/top_chefs_profile_view.dart';
 import 'package:recipe_app/features/community/presentation/manager/community_view_model.dart';
@@ -31,7 +32,7 @@ import '../../main.dart';
 
 final GoRouter router = GoRouter(
   navigatorKey: navigatorKey,
-  initialLocation: Routes.trendingRecipe,
+  initialLocation: Routes.topChefs,
   routes: [
     GoRoute(
         path: Routes.home,
@@ -112,9 +113,12 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: Routes.topChefs,
-      builder: (context, state) {
-        return TopChefsView();
-      },
+      builder: (context, state) => BlocProvider(
+        create: (context) => TopChefsBloc(
+          chefRepo: context.read(),
+        ),
+        child: TopChefsView(),
+      ),
     ),
     GoRoute(
       path: Routes.topChesProfile,
@@ -127,7 +131,8 @@ final GoRouter router = GoRouter(
           trendRepo: RecipeRepository(
             client: ApiClient(),
           ),
-        ),child: TrendingRecipesView(),
+        ),
+        child: TrendingRecipesView(),
       ),
     ),
     // GoRoute(path: Routes.trendingRecipe,

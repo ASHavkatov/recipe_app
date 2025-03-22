@@ -16,7 +16,7 @@ class ChefModel {
       username: json['username'],
       firstName: json['firstName'],
       lastName: json['lastName'],
-      image: json['image'],
+      image: json['profilePhoto'],
     );
   }
 }
