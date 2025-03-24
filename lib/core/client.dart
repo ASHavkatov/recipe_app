@@ -6,7 +6,7 @@ import 'package:recipe_app/core/data/models/create_review_model.dart';
 import 'package:recipe_app/features/sign_up/data/models/auth_model.dart';
 
 class ApiClient {
-  ApiClient() {dio = Dio(BaseOptions(baseUrl: "http://10.10.2.183:8888/api/v1", validateStatus: (status) => true));}
+  ApiClient() {dio = Dio(BaseOptions(baseUrl: "http://0.0.0.0:8888/api/v1", validateStatus: (status) => true));}
 late final Dio dio;
   
   
@@ -152,13 +152,6 @@ late final Dio dio;
   Future uploadProfilePhoto(File file) async {
     FormData formData = FormData.fromMap(
         {'file':  await MultipartFile.fromFile(file.path, filename: file.path.split('/').last)},
-    );
-    var response  = await dio.post(
-      '/auth/upload',
-      data: formData,
-      options: Options(
-        headers: {"Content - Type": 'multipart/form-data'}
-      )
     );
   }
 
