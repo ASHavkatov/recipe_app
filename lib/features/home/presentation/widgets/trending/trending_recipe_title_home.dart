@@ -4,10 +4,11 @@ import 'package:recipe_app/core/core.dart';
 
 class TrendingRecipeTitleHome extends StatelessWidget {
   const TrendingRecipeTitleHome({
-    super.key, required this.time,
+    super.key, required this.time, required this.color,
   });
 
   final int time;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class TrendingRecipeTitleHome extends StatelessWidget {
       Text(
         "Salami and cheese pizza",
         style: TextStyle(
-            color: Colors.white, fontWeight: FontWeight.w500, fontSize: 13),
+            color: color, fontWeight: FontWeight.w500, fontSize: 13),
       ),
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

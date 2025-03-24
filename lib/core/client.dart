@@ -48,6 +48,7 @@ late final Dio dio;
   }
   Future<dynamic> fetchTrendingRecipe() async {
     var response = await dio.get('/recipes/trending-recipe');
+    print(response.data);
     return response.data;
   }
 

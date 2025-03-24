@@ -13,6 +13,7 @@ class Routes {
   static const createReview = '/create-review/:recipeId';
   static const topChefs = '/top-chefs';
   static const topChesProfile = '/top-chef_profile';
+  static const trendingRecipe = '/trending-recipe';
   static String recipeBuilder(int id)=>"/recipe-detail/$id";
   static String getReviews(int recipeId)=>'/reviews/$recipeId';
   static String getCreateReview(int recipeId)=> '/create-review/$recipeId';
