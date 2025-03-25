@@ -17,7 +17,7 @@ class TopChefProfileModel {
   factory TopChefProfileModel.fromJson(Map<String, dynamic> json) {
     return TopChefProfileModel(
       id: json['id'],
-      recipeCount: json['recipeCount'],
+      recipeCount: json['recipesCount'],
       followerCount: json['followerCount'],
       followingCount: json['followingCount'],
       profilePhoto: json['profilePhoto'],
