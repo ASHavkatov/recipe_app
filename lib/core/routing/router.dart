@@ -14,6 +14,7 @@ import 'package:recipe_app/features/chefs/presentation/pages/top_chefs_profile_p
 import 'package:recipe_app/features/community/presentation/manager/community_view_model.dart';
 import 'package:recipe_app/features/community/presentation/pages/community_view.dart';
 import 'package:recipe_app/features/home/presentation/pages/home_view.dart';
+import 'package:recipe_app/features/notifications/presentation/pages/notifications_view.dart';
 import 'package:recipe_app/features/recipe_detail/presentation/manager/recipe_detail_viewmodel.dart';
 import 'package:recipe_app/features/recipe_detail/presentation/pages/recipe_detail_view.dart';
 import 'package:recipe_app/features/review/presentation/manager/reviews/reviews_bloc.dart';
@@ -32,7 +33,7 @@ import '../../main.dart';
 
 final GoRouter router = GoRouter(
   navigatorKey: navigatorKey,
-  initialLocation: Routes.trendingRecipe,
+  initialLocation: Routes.home,
   routes: [
     GoRoute(
         path: Routes.home,
@@ -138,5 +139,10 @@ final GoRouter router = GoRouter(
     // GoRoute(path: Routes.trendingRecipe,
     //   builder: (context, state)=> TrendingRecipesView(),
     // )
+    GoRoute(
+        path: Routes.notifications,
+        builder: (context, state) {
+          return NotificationsView();
+        }),
   ],
 );

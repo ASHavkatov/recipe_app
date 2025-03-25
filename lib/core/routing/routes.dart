@@ -17,5 +17,5 @@ class Routes {
   static String recipeBuilder(int id)=>"/recipe-detail/$id";
   static String getReviews(int recipeId)=>'/reviews/$recipeId';
   static String getCreateReview(int recipeId)=> '/create-review/$recipeId';
-
+  static const notifications = '/notifications/list';
 }

@@ -1,4 +1,5 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:recipe_app/features/categories/data/models/categories_model.dart';
 import 'package:recipe_app/features/home/presentation/manager/home_view_model.dart';
@@ -6,6 +7,8 @@ import 'package:recipe_app/features/home/presentation/widgets/recipe_home_app_ba
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:recipe_app/core/core.dart';
+
+import '../../../../core/routing/routes.dart';
 
 class HomeViewAppBar extends StatelessWidget implements PreferredSizeWidget {
   const HomeViewAppBar({
@@ -31,17 +34,20 @@ class HomeViewAppBar extends StatelessWidget implements PreferredSizeWidget {
           Row(
             spacing: 5,
             children: [
-              Container(
-                width: 28,
-                height: 28,
-                decoration: BoxDecoration(
-                    color: AppColors.pink,
-                    borderRadius: BorderRadius.circular(14)),
-                child: Center(
-                  child: SvgPicture.asset(
-                    'assets/svg/notification.svg',
-                    width: 12,
-                    height: 18,
+              GestureDetector(
+                onTap: () => context.go(Routes.notifications),
+                child: Container(
+                  width: 28,
+                  height: 28,
+                  decoration: BoxDecoration(
+                      color: AppColors.pink,
+                      borderRadius: BorderRadius.circular(14)),
+                  child: Center(
+                    child: SvgPicture.asset(
+                      'assets/svg/notification.svg',
+                      width: 12,
+                      height: 18,
+                    ),
                   ),
                 ),
               ),
