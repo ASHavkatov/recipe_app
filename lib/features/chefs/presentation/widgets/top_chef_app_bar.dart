@@ -24,7 +24,7 @@ class TopChefAppBar extends StatelessWidget implements PreferredSizeWidget{
         backgroundColor: AppColors.beigeColor,
         leading: RecipeIconButton(
           callback: () {
-            context.go(Routes.login);
+            context.pop();
           },
           image: "assets/svg/arrow.svg",
           width: 30,

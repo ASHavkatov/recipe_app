@@ -85,6 +85,7 @@ class YourRecipesItem extends StatelessWidget {
                 Text(title,
                   style:
                   TextStyle(
+
                       color: Colors.black,
                       fontSize: 14,
                       fontWeight: FontWeight.w400

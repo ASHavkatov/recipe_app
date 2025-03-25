@@ -28,7 +28,7 @@ class RecipeAppbar extends StatelessWidget implements PreferredSizeWidget {
         leadingWidth: 35,
         leading: RecipeIconButton(
           callback: () {
-            context.go(Routes.login);
+            context.go(Routes.home);
           },
           image: "assets/svg/arrow.svg",
           width: 30,
@@ -43,7 +43,9 @@ class RecipeAppbar extends StatelessWidget implements PreferredSizeWidget {
           RecipeAppBarAction(
             image: "assets/svg/notification.svg",
             color: AppColors.pinkSub,
-            callback: () {},
+            callback: () {
+              context.go(Routes.notifications);
+            },
           ),
           SizedBox(width: 5),
           RecipeAppBarAction(
