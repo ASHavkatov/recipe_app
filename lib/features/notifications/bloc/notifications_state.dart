@@ -24,7 +24,9 @@ class NotificationsState extends Equatable {
     NotificationStatus? notificationsStatus,
   }) {
     return NotificationsState(
-        notifications: notifications ?? this.notifications, notificationStatus: notificationsStatus ?? this.notificationStatus);
+      notifications: notifications ?? this.notifications,
+      notificationStatus: notificationsStatus ?? this.notificationStatus,
+    );
   }
 
   @override

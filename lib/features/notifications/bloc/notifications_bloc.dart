@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recipe_app/core/data/repositories/notifications_repository.dart';
-import 'package:recipe_app/features/notifications/blocs/notifications_event.dart';
-import 'package:recipe_app/features/notifications/blocs/notifications_state.dart';
 
+import 'notifications_state.dart';
+part'notifications_event.dart';
 class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
   NotificationsBloc({required NotificationsRepository repo})
       : _repo = repo,

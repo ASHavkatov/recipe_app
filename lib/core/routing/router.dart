@@ -2,6 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:recipe_app/core/client.dart';
+import 'package:recipe_app/core/data/repositories/notifications_repository.dart';
 import 'package:recipe_app/core/data/repositories/recipe_repository.dart';
 import 'package:recipe_app/core/routing/routes.dart';
 import 'package:recipe_app/features/categories/presentation/manager/categories_cubit.dart';
@@ -24,6 +25,7 @@ import 'package:recipe_app/features/sign_up/presentation/pages/complete_profile_
 import 'package:recipe_app/features/trending_recipes/blocs/trending_bloc.dart';
 import 'package:recipe_app/features/trending_recipes/pages/trending_recipes_view.dart';
 import '../../features/categories/data/models/categories_model.dart';
+import '../../features/notifications/bloc/notifications_bloc.dart';
 import '../../features/onboarding/presentation/manager/onboarding_view_model.dart';
 import '../../features/onboarding/presentation/pages/onboarding_view.dart';
 import '../../features/review/presentation/manager/create_review/create_review_bloc.dart';
@@ -140,9 +142,15 @@ final GoRouter router = GoRouter(
     //   builder: (context, state)=> TrendingRecipesView(),
     // )
     GoRoute(
-        path: Routes.notifications,
-        builder: (context, state) {
-          return NotificationsView();
-        }),
+      path: Routes.notifications,
+      builder: (context, state) => BlocProvider(
+        create: (context) => NotificationsBloc(
+          repo: NotificationsRepository(
+            client: ApiClient(),
+          ),
+        ),
+        child: NotificationsView(),
+      ),
+    ),
   ],
 );
