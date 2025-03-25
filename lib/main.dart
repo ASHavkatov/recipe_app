@@ -2,6 +2,7 @@
   import 'package:flutter_localizations/flutter_localizations.dart';
   import 'package:flutter_screenutil/flutter_screenutil.dart';
   import 'package:provider/provider.dart';
+import 'package:recipe_app/core/core.dart';
   import 'package:recipe_app/core/dependencies.dart' show providers;
   import 'package:recipe_app/core/l10n/localization.dart';
   import 'core/l10n/app_localizations.dart';
@@ -27,6 +28,7 @@
           debugShowCheckedModeBanner: false,
           // theme: appTheme,
           routerConfig: router,
+          theme: appTheme,
           localizationsDelegates: [
             GlobalMaterialLocalizations.delegate,
             GlobalWidgetsLocalizations.delegate,

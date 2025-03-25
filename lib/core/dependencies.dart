@@ -5,10 +5,7 @@ import 'package:recipe_app/core/data/repositories/top_chef_repository.dart';
 import 'package:recipe_app/core/l10n/localization.dart';
 import 'package:recipe_app/features/categories/data/repositories/categories_repository.dart';
 import 'package:recipe_app/features/categories_detail/data/repositories/categories_detail_repositories.dart';
-import 'package:recipe_app/features/community/presentation/manager/community_view_model.dart';
 import 'package:recipe_app/core/data/repositories/recipe_repository.dart';
-import 'package:recipe_app/features/sign_up/presentation/manager/sign_up_view_model.dart';
-
 import '../features/onboarding/data/repositories/onboarding_repositories.dart';
 import '../features/sign_up/data/repositories/sign_repository.dart';
 import 'client.dart';
