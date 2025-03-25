@@ -30,7 +30,7 @@ class TopChefsView extends StatelessWidget {
                 SizedBox(height: 15),
                 TopChefsMostLikedChefs(),
                 SizedBox(height: 15),
-                TopChefsNewchefs()
+                TopChefsNewchefs(),
               ],
             );
           }
