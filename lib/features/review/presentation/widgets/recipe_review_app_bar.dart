@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:flutter_svg/flutter_svg.dart";
 import "package:recipe_app/core/core.dart";
 
@@ -12,7 +13,7 @@ class RecipeReviewAppBar extends StatelessWidget implements PreferredSizeWidget{
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 37),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: AppBar(
         surfaceTintColor: AppColors.beigeColor,
         backgroundColor: AppColors.beigeColor,

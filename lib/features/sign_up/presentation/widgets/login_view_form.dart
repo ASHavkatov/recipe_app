@@ -54,7 +54,7 @@ class LoginViewForm extends StatelessWidget {
             callback: () async{
               if (viewModel.formKey.currentState!.validate()) {
                 if (await viewModel.login() && context.mounted) {
-                  context.go(Routes.categories);
+                  context.go(Routes.home);
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       content: Text("Banzaaay!"),
