@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:recipe_app/core/client.dart';
 import 'package:recipe_app/core/data/repositories/notifications_repository.dart';
 import 'package:recipe_app/core/data/repositories/recipe_repository.dart';
+import 'package:recipe_app/core/data/repositories/top_chef_repository.dart';
 import 'package:recipe_app/core/routing/routes.dart';
 import 'package:recipe_app/features/categories/presentation/manager/categories_cubit.dart';
 import 'package:recipe_app/features/categories/presentation/pages/categories_view.dart';
@@ -22,6 +23,8 @@ import 'package:recipe_app/features/review/presentation/manager/reviews/reviews_
 import 'package:recipe_app/features/review/presentation/pages/add_review.dart';
 import 'package:recipe_app/features/review/presentation/pages/review_view.dart';
 import 'package:recipe_app/features/sign_up/presentation/pages/complete_profile_view.dart';
+import 'package:recipe_app/features/top_chef_detail/blocs/top_chef_detail_bloc.dart';
+import 'package:recipe_app/features/top_chef_detail/pages/top_chef_detail_view.dart';
 import 'package:recipe_app/features/trending_recipes/blocs/trending_bloc.dart';
 import 'package:recipe_app/features/trending_recipes/pages/trending_recipes_view.dart';
 import '../../features/categories/data/models/categories_model.dart';
@@ -35,7 +38,7 @@ import '../../main.dart';
 
 final GoRouter router = GoRouter(
   navigatorKey: navigatorKey,
-  initialLocation: Routes.topChesProfile,
+  initialLocation: Routes.getTopChefDetail(2),
   routes: [
     GoRoute(
         path: Routes.home,
@@ -150,6 +153,18 @@ final GoRouter router = GoRouter(
           ),
         ),
         child: NotificationsView(),
+      ),
+    ),
+    GoRoute(
+      path: Routes.topChefDetail,
+      builder: (context, state) => BlocProvider(
+        create: (context) => TopChefDetailBloc(
+          profileId: int.parse(state.pathParameters['profileId']!),
+          repo: ChefRepository(
+            client: ApiClient(),
+          ),
+        ),
+        child: TopChefDetailView(),
       ),
     ),
   ],
