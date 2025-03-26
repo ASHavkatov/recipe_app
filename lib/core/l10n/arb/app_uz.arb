@@ -19,5 +19,11 @@
   "trendingRecipe": "Trenddagi restseptlar",
   "yourRecipe": "Sizning retseptlaringiz",
   "topChefs": "Top Oshpazlar",
-  "recentlyAdded": "Yaqinda qo'shilganlar"
+  "recentlyAdded": "Yaqinda qo'shilganlar",
+  "continues": "Davom Etish",
+  "iAmNew": "Yangiman",
+  "iHaveBeenHere": "Oldin ham bo'lganman",
+  "welcome": "Xush Kelibsiz",
+  "notifications": "Xabarnoma"
+
 }

@@ -226,6 +226,36 @@ abstract class MyLocalizations {
   /// In en, this message translates to:
   /// **'Recently Added'**
   String get recentlyAdded;
+
+  /// No description provided for @continues.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get continues;
+
+  /// No description provided for @iAmNew.
+  ///
+  /// In en, this message translates to:
+  /// **'I Am New'**
+  String get iAmNew;
+
+  /// No description provided for @iHaveBeenHere.
+  ///
+  /// In en, this message translates to:
+  /// **'I Have Been Here'**
+  String get iHaveBeenHere;
+
+  /// No description provided for @welcome.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome'**
+  String get welcome;
+
+  /// No description provided for @notifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get notifications;
 }
 
 class _MyLocalizationsDelegate extends LocalizationsDelegate<MyLocalizations> {

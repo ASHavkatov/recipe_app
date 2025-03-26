@@ -73,4 +73,19 @@ class MyLocalizationsUz extends MyLocalizations {
 
   @override
   String get recentlyAdded => 'Yaqinda qo\'shilganlar';
+
+  @override
+  String get continues => 'Davom Etish';
+
+  @override
+  String get iAmNew => 'Yangiman';
+
+  @override
+  String get iHaveBeenHere => 'Oldin ham bo\'lganman';
+
+  @override
+  String get welcome => 'Xush Kelibsiz';
+
+  @override
+  String get notifications => 'Xabarnoma';
 }

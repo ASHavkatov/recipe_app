@@ -20,5 +20,10 @@
   "trendingRecipe": "Trending Recipe",
   "yourRecipe": "Your Recipe",
   "topChefs": "Top Chefs",
-  "recentlyAdded": "Recently Added"
+  "recentlyAdded": "Recently Added",
+  "continues": "Continue",
+  "iAmNew": "I Am New",
+  "iHaveBeenHere": "I Have Been Here",
+  "welcome": "Welcome",
+  "notifications": "Notifications"
 }
