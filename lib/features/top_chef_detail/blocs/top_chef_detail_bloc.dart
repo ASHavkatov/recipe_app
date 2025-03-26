@@ -16,10 +16,21 @@ class TopChefDetailBloc extends Bloc<TopChefDetailEvent, TopChefDetailState> {
   }
 
   Future<void> _onLoad(TopChefDetailLoading event, Emitter<TopChefDetailState> emit) async {
-    emit(state.copyWith(
-      topChefDetailStatus: TopChefDetailStatus.loading,
-    ));
-    final topChefDetail = await _repo.fetchTopChefProfile(event.profileId);
-    emit(state.copyWith(chefProfileModel: topChefDetail, topChefDetailStatus: TopChefDetailStatus.idle));
+    emit(state.copyWith(topChefDetailStatus: TopChefDetailStatus.loading));
+
+    try {
+      final topChefDetail = await _repo.fetchTopChefProfile(event.profileId);
+      if (topChefDetail != null) {
+        emit(state.copyWith(
+          chefProfileModel: topChefDetail,
+          topChefDetailStatus: TopChefDetailStatus.success,
+        ));
+      } else {
+        emit(state.copyWith(topChefDetailStatus: TopChefDetailStatus.error));
+      }
+    } catch (e) {
+      emit(state.copyWith(topChefDetailStatus: TopChefDetailStatus.error));
+    }
   }
+
 }

@@ -4,7 +4,11 @@ import 'package:recipe_app/core/data/models/create_review_model.dart';
 import 'package:recipe_app/features/sign_up/data/models/auth_model.dart';
 
 class ApiClient {
+<<<<<<< HEAD
   ApiClient() {dio = Dio(BaseOptions(baseUrl: "http://192.168.0.101:8888/api/v1", validateStatus: (status) => true));}
+=======
+  ApiClient() {dio = Dio(BaseOptions(baseUrl: "http://26.183.104.181:8888/api/v1", validateStatus: (status) => true));}
+>>>>>>> 94b6071c8915af4d609a60866c1811d50d50befb
 late final Dio dio;
   
   
