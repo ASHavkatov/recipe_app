@@ -1,14 +1,15 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
-import 'package:recipe_app/core/data/models/create_review_model.dart';
+import 'package:recipe_app/core/data/models/review/create_review_model.dart';
+import 'package:recipe_app/core/interceptor.dart';
 import 'package:recipe_app/features/sign_up/data/models/auth_model.dart';
 
 class ApiClient {
   ApiClient() {
-    dio = Dio(
-      BaseOptions(baseUrl: "http://192.168.11.60:8888/api/v1", validateStatus: (status) => true),
-    );
+    dio = Dio(BaseOptions(baseUrl: "http://10.10.1.238:8888/api/v1", validateStatus: (status) => true));
+    dio.interceptors.add(AuthInterceptor());
   }
+  
 
   late final Dio dio;
 
@@ -139,10 +140,8 @@ class ApiClient {
   }
 
   Future<String> login(String login, String password) async {
-    var response = await dio.post(
-      '/auth/login',
-      data: {'login': login, 'password': password},
-    );
+
+    var response = await dio.post('/auth/login', data: {'login': login, 'password': password});
     if (response.statusCode == 200) {
       Map<String, String> data = Map<String, String>.from(response.data);
       return data['accessToken']!;

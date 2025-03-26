@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:recipe_app/core/core.dart";
-import "package:recipe_app/core/data/models/recipe_reviews_model.dart";
+import "package:recipe_app/core/data/models/review/recipe_reviews_model.dart";
 import 'package:recipe_app/features/review/presentation/widgets/recipe_review_title.dart';
 
 class ReviewRecipe extends StatelessWidget {

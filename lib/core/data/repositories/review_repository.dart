@@ -1,9 +1,9 @@
 import 'dart:io';
 
 import 'package:recipe_app/core/client.dart';
-import 'package:recipe_app/core/data/models/create_review_model.dart';
-import 'package:recipe_app/core/data/models/recipe_reviews_comment_model.dart';
-import 'package:recipe_app/core/data/models/recipe_reviews_model.dart';
+import 'package:recipe_app/core/data/models/review/create_review_model.dart';
+import 'package:recipe_app/core/data/models/review/recipe_reviews_comment_model.dart';
+import 'package:recipe_app/core/data/models/review/recipe_reviews_model.dart';
 
 class ReviewRepository{
   final ApiClient client;
