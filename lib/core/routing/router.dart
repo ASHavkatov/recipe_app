@@ -37,7 +37,7 @@ import '../../main.dart';
 
 final GoRouter router = GoRouter(
   navigatorKey: navigatorKey,
-  initialLocation: Routes.notifications,
+  initialLocation: Routes.login,
   routes: [
     GoRoute(
         path: Routes.home,
