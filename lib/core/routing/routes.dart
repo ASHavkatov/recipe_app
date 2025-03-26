@@ -20,4 +20,6 @@ class Routes {
   static String getReviews(int recipeId)=>'/reviews/$recipeId';
   static String getCreateReview(int recipeId)=> '/create-review/$recipeId';
   static const notifications = '/notifications/list';
+  static const yourRecipes = '/recipes/my-recipes';
+
 }

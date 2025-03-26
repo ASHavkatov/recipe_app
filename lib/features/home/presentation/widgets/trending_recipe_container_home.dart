@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -16,7 +17,10 @@ class TrendingRecipeContainerHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var vm = context.watch<HomeViewModel>();
-    return Container(
+
+    return switch(vm.isLoading) {
+      true => Center(child: CupertinoActivityIndicator(),),
+    false=>Container(
       width: 430.w,
       height: 255.h,
       padding: EdgeInsets.symmetric(horizontal: 30,vertical: 14),
@@ -38,13 +42,15 @@ class TrendingRecipeContainerHome extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-               YourRecipesItem(  rating: vm.yourRecipes[0].rating, time: vm.yourRecipes[0].time,  image: vm.yourRecipes[0].image, title: vm.yourRecipes[0].title,),
-               YourRecipesItem( rating: vm.yourRecipes[1].rating,time: vm.yourRecipes[1].time, image: vm.yourRecipes[1].image, title: vm.yourRecipes[1].title,),
+              YourRecipesItem(  rating: vm.yourRecipes[0].rating, time: vm.yourRecipes[0].time,  image: vm.yourRecipes[0].image, title: vm.yourRecipes[0].title,),
+              YourRecipesItem( rating: vm.yourRecipes[1].rating,time: vm.yourRecipes[1].time, image: vm.yourRecipes[1].image, title: vm.yourRecipes[1].title,),
             ],
           ),
         ],
       ),
-    );
+    )
+
+    };
   }
 }
 

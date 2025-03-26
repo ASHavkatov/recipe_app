@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recipe_app/core/core.dart';
@@ -13,7 +14,9 @@ class RecentlyAddedSectionHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final vm = context.watch<HomeViewModel>();
-    return Padding(
+    return switch(vm.isLoading){
+      true => Center(child: CupertinoActivityIndicator(),),
+    false => Padding(
       padding: const EdgeInsets.symmetric(horizontal: 36),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,6 +38,7 @@ class RecentlyAddedSectionHome extends StatelessWidget {
           )
         ],
       ),
-    );
+    )
+    };
   }
 }
