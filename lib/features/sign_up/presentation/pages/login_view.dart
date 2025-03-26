@@ -28,7 +28,7 @@ class LoginView extends StatelessWidget {
               LoginViewForm(),
             ],
           ),
-          floatingActionButton: IconButton(onPressed: ()=> context.go('/'), icon: Icon(Icons.add)),
+          floatingActionButton: IconButton(onPressed: ()=> context.go('/notifications'), icon: Icon(Icons.add)),
         );
       },
     );
