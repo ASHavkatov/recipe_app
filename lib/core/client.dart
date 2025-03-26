@@ -58,8 +58,8 @@ class ApiClient {
     return response.data;
   }
 
-  Future<List<dynamic>> fetchYourRecipes(int limit) async {
-    var response = await dio.get('/recipes/list?Limit=$limit');
+  Future<List<dynamic>> fetchYourRecipes() async {
+    var response = await dio.get('/recipes/my-recipes');
     if (response.statusCode == 200) {
       List<dynamic> data = response.data;
       return data;

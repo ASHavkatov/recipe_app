@@ -20,9 +20,9 @@ class YourRecipeBloc extends Bloc< YourRecipeEvent, YourRecipeState>{
       recipeStatus: YourRecipeStatus.loading,
     ));
 
-    final mostViewRecipe = await _repo.fetchYourRecipes(state.mostViewRecipe.length);
+    final mostViewRecipe = await _repo.fetchYourRecipes();
     emit(state.copyWith(mostViewRecipe: mostViewRecipe, mostViewRecipeStatus: YourRecipeStatus.success));
-    final recipes = await _repo.fetchYourRecipes(state.recipes.length);
+    final recipes = await _repo.fetchYourRecipes();
     emit(state.copyWith(recipes: recipes, recipeStatus: YourRecipeStatus.success));
   }
 }
