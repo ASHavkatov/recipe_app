@@ -16,13 +16,13 @@ class HomeTitlePage extends StatelessWidget {
       height: 100,
       padding: EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
-          color: Colors.white, borderRadius: BorderRadius.circular(14), border: Border.all(color: AppColors.pink)),
+          color: AppColors.beigeColor, borderRadius: BorderRadius.circular(14), border: Border.all(color: AppColors.pink)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           TrendingRecipeTitleHome(
             time: 30,
-            color: Colors.black,
+            color: Colors.white,
           ),
           TrendingRecipeDescHome(
             rating: 4),

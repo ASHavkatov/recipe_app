@@ -202,6 +202,60 @@ abstract class MyLocalizations {
   /// In en, this message translates to:
   /// **'Categories'**
   String get categories;
+
+  /// No description provided for @trendingRecipe.
+  ///
+  /// In en, this message translates to:
+  /// **'Trending Recipe'**
+  String get trendingRecipe;
+
+  /// No description provided for @yourRecipe.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Recipe'**
+  String get yourRecipe;
+
+  /// No description provided for @topChefs.
+  ///
+  /// In en, this message translates to:
+  /// **'Top Chefs'**
+  String get topChefs;
+
+  /// No description provided for @recentlyAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'Recently Added'**
+  String get recentlyAdded;
+
+  /// No description provided for @continues.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get continues;
+
+  /// No description provided for @iAmNew.
+  ///
+  /// In en, this message translates to:
+  /// **'I Am New'**
+  String get iAmNew;
+
+  /// No description provided for @iHaveBeenHere.
+  ///
+  /// In en, this message translates to:
+  /// **'I Have Been Here'**
+  String get iHaveBeenHere;
+
+  /// No description provided for @welcome.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome'**
+  String get welcome;
+
+  /// No description provided for @notifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get notifications;
 }
 
 class _MyLocalizationsDelegate extends LocalizationsDelegate<MyLocalizations> {

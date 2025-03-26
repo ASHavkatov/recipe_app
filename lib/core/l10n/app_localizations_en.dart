@@ -61,4 +61,31 @@ class MyLocalizationsEn extends MyLocalizations {
 
   @override
   String get categories => 'Categories';
+
+  @override
+  String get trendingRecipe => 'Trending Recipe';
+
+  @override
+  String get yourRecipe => 'Your Recipe';
+
+  @override
+  String get topChefs => 'Top Chefs';
+
+  @override
+  String get recentlyAdded => 'Recently Added';
+
+  @override
+  String get continues => 'Continue';
+
+  @override
+  String get iAmNew => 'I Am New';
+
+  @override
+  String get iHaveBeenHere => 'I Have Been Here';
+
+  @override
+  String get welcome => 'Welcome';
+
+  @override
+  String get notifications => 'Notifications';
 }

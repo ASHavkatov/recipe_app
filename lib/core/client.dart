@@ -9,6 +9,7 @@ class ApiClient {
     dio = Dio(BaseOptions(baseUrl: "http://10.10.1.238:8888/api/v1", validateStatus: (status) => true));
     dio.interceptors.add(AuthInterceptor());
   }
+  
 
   late final Dio dio;
 
@@ -139,6 +140,7 @@ class ApiClient {
   }
 
   Future<String> login(String login, String password) async {
+
     var response = await dio.post('/auth/login', data: {'login': login, 'password': password});
     if (response.statusCode == 200) {
       Map<String, String> data = Map<String, String>.from(response.data);

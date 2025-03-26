@@ -61,4 +61,31 @@ class MyLocalizationsUz extends MyLocalizations {
 
   @override
   String get categories => 'Categories';
+
+  @override
+  String get trendingRecipe => 'Trenddagi restseptlar';
+
+  @override
+  String get yourRecipe => 'Sizning retseptlaringiz';
+
+  @override
+  String get topChefs => 'Top Oshpazlar';
+
+  @override
+  String get recentlyAdded => 'Yaqinda qo\'shilganlar';
+
+  @override
+  String get continues => 'Davom Etish';
+
+  @override
+  String get iAmNew => 'Yangiman';
+
+  @override
+  String get iHaveBeenHere => 'Oldin ham bo\'lganman';
+
+  @override
+  String get welcome => 'Xush Kelibsiz';
+
+  @override
+  String get notifications => 'Xabarnoma';
 }

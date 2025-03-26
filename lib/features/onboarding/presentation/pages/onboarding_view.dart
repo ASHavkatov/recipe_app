@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:recipe_app/core/l10n/app_localizations.dart';
 import '../manager/onboarding_view_model.dart';
 import '../widgets/onboarding_elevatedbutton.dart';
 import '../widgets/onboarding_view_bottom_nav_bar.dart';
@@ -47,7 +48,7 @@ class OnboardingView extends StatelessWidget {
                         fit: BoxFit.cover,
                       ),
                       Text(
-                        "Welcome",
+                        MyLocalizations.of(context)!.welcome,
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 25,
@@ -55,7 +56,8 @@ class OnboardingView extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        maxLines: 3,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
                         "Find the best recipes that the world can provide you also with every step that you can learn to increase your cooking skills.",
                         style: TextStyle(
                           color: Colors.white,
@@ -66,7 +68,7 @@ class OnboardingView extends StatelessWidget {
                     ],
                   ),
                 ),
-                bottomNavigationBar:OnboardingViewBottomNavBar()
+                bottomNavigationBar:OnboardingViewBottomNavBar(),
               );
             }
             return Stack(
@@ -140,7 +142,7 @@ class OnboardingView extends StatelessWidget {
                         duration: Duration(milliseconds: 300),
                         curve: Curves.linear,
                       ),
-                      title: "Continue"),
+                      title: MyLocalizations.of(context)!.continues),
                 ),
               ],
             );
