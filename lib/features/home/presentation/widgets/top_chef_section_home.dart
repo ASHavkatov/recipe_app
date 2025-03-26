@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:recipe_app/core/core.dart';
+import 'package:recipe_app/core/l10n/app_localizations.dart';
 import 'package:recipe_app/features/home/presentation/manager/home_view_model.dart';
 import 'package:recipe_app/features/home/presentation/widgets/top_chef_section_item.dart';
 
@@ -27,7 +28,7 @@ class TopChefSectionHome extends StatelessWidget {
           spacing: 9,
           children: [
             Text(
-              "Top Chef",
+              MyLocalizations.of(context)!.topChefs,
               style: TextStyle(
                   color: AppColors.redPinkMain,
                   fontSize: 15,

@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:recipe_app/core/core.dart';
+import 'package:recipe_app/core/l10n/app_localizations.dart';
 import 'package:recipe_app/features/categories_detail/data/models/categories_detail_model.dart';
 import 'package:recipe_app/features/categories_detail/presentation/widgets/recipe_icon_button_container.dart';
 import 'package:recipe_app/features/home/presentation/manager/home_view_model.dart';
@@ -32,7 +33,7 @@ class TrendingRecipeContainerHome extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Text('Your Recipes',
+          Text(MyLocalizations.of(context)!.yourRecipe,
             style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.w500,

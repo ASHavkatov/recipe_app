@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:recipe_app/core/core.dart';
 import 'package:recipe_app/core/l10n/app_localizations.dart';
@@ -27,6 +28,7 @@ class LoginView extends StatelessWidget {
               LoginViewForm(),
             ],
           ),
+          floatingActionButton: IconButton(onPressed: ()=> context.go('/'), icon: Icon(Icons.add)),
         );
       },
     );

@@ -15,5 +15,9 @@
   "login": "Kirish",
   "forgot": "Parolingzni utudingizmi",
   "or": "Yoki ro'xatdan o'ting",
-  "an": "Hisobingiz yo'qmi? Ro'yxatdan o'ting"
+  "an": "Hisobingiz yo'qmi? Ro'yxatdan o'ting",
+  "trendingRecipe": "Trenddagi restseptlar",
+  "yourRecipe": "Sizning retseptlaringiz",
+  "topChefs": "Top Oshpazlar",
+  "recentlyAdded": "Yaqinda qo'shilganlar"
 }

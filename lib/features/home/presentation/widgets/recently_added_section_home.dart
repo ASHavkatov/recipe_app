@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recipe_app/core/core.dart';
+import 'package:recipe_app/core/l10n/app_localizations.dart';
 import 'package:recipe_app/features/home/presentation/manager/home_view_model.dart';
 import 'package:recipe_app/features/home/presentation/widgets/recently_added_section_item.dart';
 import 'package:recipe_app/features/profiles/presentation/widgets/profile_item.dart';
@@ -23,7 +24,7 @@ class RecentlyAddedSectionHome extends StatelessWidget {
         spacing: 9,
         children: [
           Text(
-            "Recently Added",
+            MyLocalizations.of(context)!.recentlyAdded,
             style: TextStyle(
                 color: AppColors.redPinkMain,
                 fontSize: 15,
