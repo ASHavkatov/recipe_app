@@ -5,8 +5,8 @@ import 'package:flutter_svg/svg.dart';
 import '../../utils/colors.dart';
 
 class RecipeStackUpImage extends StatelessWidget {
-  const RecipeStackUpImage({super.key});
-
+  const RecipeStackUpImage({super.key, required this.title, required this.time, required this.desc, required this.rating, required this.image});
+final String title, desc, rating, time, image;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -32,7 +32,7 @@ class RecipeStackUpImage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Béchamel  Pasta",
+                  title,
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 12,
@@ -40,7 +40,7 @@ class RecipeStackUpImage extends StatelessWidget {
                 ),
                 SizedBox(height: 3.h),
                 Text(
-                  "A creamy and indulgent",
+                  desc,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
@@ -50,7 +50,7 @@ class RecipeStackUpImage extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      "4",
+                      rating,
                       style: TextStyle(
                         color: AppColors.pinkSub,
                         fontSize: 12,
@@ -68,7 +68,7 @@ class RecipeStackUpImage extends StatelessWidget {
                       width: 4.w,
                     ),
                     Text(
-                      "30min",
+                      time,
                       style: TextStyle(
                         color: AppColors.pinkSub,
                         fontSize: 12,
@@ -82,8 +82,8 @@ class RecipeStackUpImage extends StatelessWidget {
         ),
         ClipRRect(
           borderRadius: BorderRadius.circular(14),
-          child: Image(
-            image: AssetImage("assets/images/breakfast.png"),
+          child: Image.network(
+            image,
             width: 170.w,
             height: 153.h,
             fit: BoxFit.cover,

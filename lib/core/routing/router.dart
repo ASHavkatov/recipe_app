@@ -26,6 +26,7 @@ import 'package:recipe_app/features/top_chef_detail/blocs/top_chef_detail_bloc.d
 import 'package:recipe_app/features/top_chef_detail/top_chefs_profile_pages/top_chefs_profile_view.dart';
 import 'package:recipe_app/features/trending_recipes/blocs/trending_bloc.dart';
 import 'package:recipe_app/features/trending_recipes/pages/trending_recipes_view.dart';
+import 'package:recipe_app/features/your_recipes/blocs/your_recipes_bloc.dart';
 import 'package:recipe_app/features/your_recipes/pages/your_recipe_view.dart';
 import '../../features/categories/data/models/categories_model.dart';
 import '../../features/notifications/bloc/notifications_bloc.dart';
@@ -38,7 +39,7 @@ import '../../main.dart';
 
 final GoRouter router = GoRouter(
   navigatorKey: navigatorKey,
-  initialLocation: Routes.home,
+  initialLocation: Routes.yourRecipes,
   routes: [
     GoRoute(
         path: Routes.home,
@@ -132,7 +133,6 @@ final GoRouter router = GoRouter(
         child: TopChefsView(),
       ),
     ),
-
     GoRoute(
       path: Routes.trendingRecipe,
       builder: (context, state) => BlocProvider(
@@ -167,6 +167,14 @@ final GoRouter router = GoRouter(
         child: TopChefsProfileView(),
       ),
     ),
-    GoRoute(path: Routes.yourRecipes, builder: (context, state) => YourRecipeView())
+    GoRoute(
+      path: Routes.yourRecipes,
+      builder: (context, state) => BlocProvider(
+        create: (context) => YourRecipeBloc(
+          repo: RecipeRepository(client: ApiClient()),
+        ),
+        child: YourRecipeView(),
+      ),
+    ),
   ],
 );
