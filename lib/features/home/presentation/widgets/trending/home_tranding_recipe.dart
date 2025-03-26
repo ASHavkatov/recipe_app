@@ -26,9 +26,7 @@ class HomeTrendingRecipe extends StatelessWidget {
             clipBehavior: Clip.none,
             alignment: Alignment.topCenter,
             children: [
-              Align(
-                  alignment: Alignment.bottomCenter,
-                  child: HomeTitlePage()),
+              Align(alignment: Alignment.bottomCenter, child: HomeTitlePage()),
               SizedBox(
                 width: double.infinity,
                 height: 143,
@@ -42,23 +40,20 @@ class HomeTrendingRecipe extends StatelessWidget {
               ),
               Positioned(
                 top: 7,
-                  right: 8,
-                  child: Container(
-                width: 28,
-                height: 29,
-                decoration: BoxDecoration(
-                  color: AppColors.pink,
-                  borderRadius: BorderRadius.circular(14)
-                ),
-                child: Center(
-                  child: SvgPicture.asset(
-                    "assets/svg/heart.svg",
-                    color: AppColors.pinkSub,
-                    fit: BoxFit.cover,
+                right: 8,
+                child: Container(
+                  width: 28,
+                  height: 29,
+                  decoration: BoxDecoration(color: AppColors.pink, borderRadius: BorderRadius.circular(14)),
+                  child: Center(
+                    child: SvgPicture.asset(
+                      "assets/svg/heart.svg",
+                      color: AppColors.pinkSub,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
-              ))
-
+              ),
             ],
           ),
         ),

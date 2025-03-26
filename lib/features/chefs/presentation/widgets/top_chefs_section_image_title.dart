@@ -14,7 +14,7 @@ class TopChefsSectionImageTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 169.w,
-      height: 217.h,
+      height: 218.h,
       child: Stack(
         alignment: Alignment.topCenter,
         children: [
@@ -23,7 +23,7 @@ class TopChefsSectionImageTitle extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.all(10),
               width: 159.w,
-              height: 76.h,
+              height: 79.h,
               decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
@@ -42,7 +42,7 @@ class TopChefsSectionImageTitle extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    username,
+                    '@${username}',
                     style: TextStyle(
                       color: AppColors.redPinkMain,
                       fontFamily: 'Poppins',

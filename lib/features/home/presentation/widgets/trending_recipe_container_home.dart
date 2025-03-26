@@ -1,8 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:recipe_app/core/core.dart';
+import 'package:recipe_app/core/l10n/app_localizations.dart';
 import 'package:recipe_app/features/categories_detail/data/models/categories_detail_model.dart';
 import 'package:recipe_app/features/categories_detail/presentation/widgets/recipe_icon_button_container.dart';
 import 'package:recipe_app/features/home/presentation/manager/home_view_model.dart';
@@ -16,7 +18,10 @@ class TrendingRecipeContainerHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var vm = context.watch<HomeViewModel>();
-    return Container(
+
+    return switch(vm.isLoading) {
+      true => Center(child: CupertinoActivityIndicator(),),
+    false=>Container(
       width: 430.w,
       height: 255.h,
       padding: EdgeInsets.symmetric(horizontal: 30,vertical: 14),
@@ -28,7 +33,7 @@ class TrendingRecipeContainerHome extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Text('Your Recipes',
+          Text(MyLocalizations.of(context)!.yourRecipe,
             style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.w500,
@@ -38,13 +43,15 @@ class TrendingRecipeContainerHome extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-               YourRecipesItem(  rating: vm.yourRecipes[0].rating, time: vm.yourRecipes[0].time,  image: vm.yourRecipes[0].image, title: vm.yourRecipes[0].title,),
-               YourRecipesItem( rating: vm.yourRecipes[1].rating,time: vm.yourRecipes[1].time, image: vm.yourRecipes[1].image, title: vm.yourRecipes[1].title,),
+              YourRecipesItem(  rating: vm.yourRecipes[0].rating, time: vm.yourRecipes[0].time,  image: vm.yourRecipes[0].image, title: vm.yourRecipes[0].title,),
+              YourRecipesItem( rating: vm.yourRecipes[1].rating,time: vm.yourRecipes[1].time, image: vm.yourRecipes[1].image, title: vm.yourRecipes[1].title,),
             ],
           ),
         ],
       ),
-    );
+    )
+
+    };
   }
 }
 

@@ -23,9 +23,13 @@ import 'package:recipe_app/features/review/presentation/pages/add_review.dart';
 import 'package:recipe_app/features/review/presentation/pages/review_view.dart';
 import 'package:recipe_app/features/sign_up/presentation/pages/complete_profile_view.dart';
 import 'package:recipe_app/features/top_chef_detail/blocs/top_chef_detail_bloc.dart';
+<<<<<<< HEAD
+=======
 import 'package:recipe_app/features/top_chef_detail/top_chefs_profile_pages/top_chefs_profile_view.dart';
+>>>>>>> 94b6071c8915af4d609a60866c1811d50d50befb
 import 'package:recipe_app/features/trending_recipes/blocs/trending_bloc.dart';
 import 'package:recipe_app/features/trending_recipes/pages/trending_recipes_view.dart';
+import 'package:recipe_app/features/your_recipes/pages/your_recipe_view.dart';
 import '../../features/categories/data/models/categories_model.dart';
 import '../../features/notifications/bloc/notifications_bloc.dart';
 import '../../features/onboarding/presentation/manager/onboarding_view_model.dart';
@@ -37,7 +41,11 @@ import '../../main.dart';
 
 final GoRouter router = GoRouter(
   navigatorKey: navigatorKey,
+<<<<<<< HEAD
+  initialLocation: Routes.login,
+=======
   initialLocation: Routes.notifications,
+>>>>>>> 94b6071c8915af4d609a60866c1811d50d50befb
   routes: [
     GoRoute(
         path: Routes.home,
@@ -160,8 +168,12 @@ final GoRouter router = GoRouter(
             client: ApiClient(),
           ),
         ),
+<<<<<<< HEAD
+=======
         child: TopChefsProfileView(),
+>>>>>>> 94b6071c8915af4d609a60866c1811d50d50befb
       ),
     ),
+    GoRoute(path: Routes.yourRecipes, builder: (context,state)=> YourRecipeView())
   ],
 );

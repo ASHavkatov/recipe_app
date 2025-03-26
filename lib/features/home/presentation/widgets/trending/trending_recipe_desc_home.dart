@@ -13,10 +13,16 @@ class TrendingRecipeDescHome extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(
-          "This is a quick overview of the ingredients...",
-          style: TextStyle(
-              color: Colors.black, fontWeight: FontWeight.w300, fontSize: 13),
+        SizedBox(
+          width: 248,
+          child: Text(
+            overflow: TextOverflow.ellipsis,
+            softWrap: true,
+            maxLines: 1,
+            "This is a quick overview of the ingredients...",
+            style: TextStyle(
+                color: Colors.white, fontWeight: FontWeight.w300, fontSize: 13, height: 1),
+          ),
         ),
         Row(
           children: [
