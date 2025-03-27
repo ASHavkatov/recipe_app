@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
@@ -41,10 +42,19 @@ final GoRouter router = GoRouter(
   initialLocation: Routes.home,
   routes: [
     GoRoute(
-        path: Routes.home,
-        builder: (context, state) {
-          return HomeView();
-        }),
+      path: Routes.home,
+      pageBuilder: (context, state) => CustomTransitionPage(
+        transitionDuration: Duration(seconds: 3),
+        child: HomeView(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          final curve = CurvedAnimation(parent: animation, curve: Curves.easeOutQuart);
+          return SlideTransition(
+            position: Tween<Offset>(begin: Offset(0, 1), end: Offset.zero).animate(curve),
+            child: child,
+          );
+        },
+      ),
+    ),
     GoRoute(
       path: Routes.login,
       builder: (context, state) {
@@ -132,7 +142,6 @@ final GoRouter router = GoRouter(
         child: TopChefsView(),
       ),
     ),
-
     GoRoute(
       path: Routes.trendingRecipe,
       builder: (context, state) => BlocProvider(
