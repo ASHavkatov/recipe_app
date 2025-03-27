@@ -66,42 +66,27 @@ class YourRecipeView extends StatelessWidget {
               ),
               SizedBox(height: 15.h),
               Expanded(
-                child: ListView.builder(
+                child: GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 20,
+                    mainAxisSpacing: 20,
+                    childAspectRatio: 170.w / 226.h,
+                  ),
                   itemCount: (state.recipes.length / 2).ceil(),
                   itemBuilder: (context, index) {
-                    int firstIndex = index * 2;
-                    int secondIndex = firstIndex + 1;
-                    return Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 36, right: 36, bottom: 150),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              RecipeStackUpImage(
-                                title: state.recipes[firstIndex].title,
-                                desc: state.recipes[firstIndex].desc,
-                                rating: "${state.recipes[firstIndex].rating}",
-                                time: "${state.recipes[firstIndex].time}",
-                                image: state.recipes[firstIndex].image,
-                              ),
-                              if (secondIndex < state.recipes.length)
-                                RecipeStackUpImage(
-                                  title: state.recipes[secondIndex].title,
-                                  desc: state.recipes[secondIndex].desc,
-                                  rating: "${state.recipes[secondIndex].rating}",
-                                  time: "${state.recipes[secondIndex].time}",
-                                  image: state.recipes[secondIndex].image,
-                                ),
-                            ],
-                          ),
-                        ),
-                      ],
+                    return Center(
+                      child: RecipeStackUpImage(
+                        title: state.recipes[index].title,
+                        desc: state.recipes[index].desc,
+                        rating: "${state.recipes[index].rating}",
+                        time: "${state.recipes[index].time}",
+                        image: state.recipes[index].image,
+                      ),
                     );
                   },
                 ),
               ),
-
             ],
           );
         },
