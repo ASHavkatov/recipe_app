@@ -17,7 +17,7 @@ class MyProfilePageAppBar extends StatelessWidget
   });
   @override
   // TODO: implement preferredSize
-  Size get preferredSize => Size(double.infinity, 240 * AppSizes.hRatio);
+  Size get preferredSize => Size(double.infinity, 260 * AppSizes.hRatio);
 
 
   @override

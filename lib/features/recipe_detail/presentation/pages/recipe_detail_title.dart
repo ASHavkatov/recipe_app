@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:recipe_app/core/core.dart';
-import 'package:recipe_app/features/recipe_detail/presentation/manager/recipe_detail_viewmodel.dart';
-
 import '../../../../core/utils/colors.dart';
 
 class RecipeDetailTitle extends StatelessWidget {

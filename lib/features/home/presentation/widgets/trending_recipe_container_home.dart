@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:recipe_app/core/core.dart';
-import 'package:recipe_app/features/categories_detail/data/models/categories_detail_model.dart';
 import 'package:recipe_app/features/categories_detail/presentation/widgets/recipe_icon_button_container.dart';
 import 'package:recipe_app/features/home/presentation/manager/home_view_model.dart';
 
