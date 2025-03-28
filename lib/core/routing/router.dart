@@ -42,7 +42,7 @@ import '../../main.dart';
 
 final GoRouter router = GoRouter(
   navigatorKey: navigatorKey,
-  initialLocation: Routes.trendingRecipe,
+  initialLocation: Routes.follow,
 
   routes: [
     GoRoute(
