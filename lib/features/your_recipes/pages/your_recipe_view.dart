@@ -66,25 +66,28 @@ class YourRecipeView extends StatelessWidget {
               ),
               SizedBox(height: 15.h),
               Expanded(
-                child: GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 20,
-                    mainAxisSpacing: 20,
-                    childAspectRatio: 170.w / 226.h,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 36, right: 36),
+                  child: GridView.builder(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 15,
+                      mainAxisSpacing: 20,
+                      childAspectRatio: 170.w / 226.h,
+                    ),
+                    itemCount: (state.recipes.length / 2).ceil(),
+                    itemBuilder: (context, index) {
+                      return Center(
+                        child: RecipeStackUpImage(
+                          title: state.recipes[index].title,
+                          desc: state.recipes[index].desc,
+                          rating: "${state.recipes[index].rating}",
+                          time: "${state.recipes[index].time}",
+                          image: state.recipes[index].image,
+                        ),
+                      );
+                    },
                   ),
-                  itemCount: (state.recipes.length / 2).ceil(),
-                  itemBuilder: (context, index) {
-                    return Center(
-                      child: RecipeStackUpImage(
-                        title: state.recipes[index].title,
-                        desc: state.recipes[index].desc,
-                        rating: "${state.recipes[index].rating}",
-                        time: "${state.recipes[index].time}",
-                        image: state.recipes[index].image,
-                      ),
-                    );
-                  },
                 ),
               ),
             ],
