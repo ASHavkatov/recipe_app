@@ -20,4 +20,5 @@ List<SingleChildWidget> providers = [
   Provider(create: (context)=>CategoriesDetailRepositories(client: context.read())),
   ChangeNotifierProvider(create: (context)=>LocalizationViewModel()),
   Provider(create: (context) => OnboardingRepository(client: context.read(),),),
+  Provider(create: (context)=> ReviewRepository(client: context.read()))
 ];

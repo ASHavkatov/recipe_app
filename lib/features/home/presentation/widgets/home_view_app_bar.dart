@@ -17,7 +17,6 @@ class HomeViewAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title, subtitle;
 
   @override
-  // TODO: implement preferredSize
   Size get preferredSize => const Size(double.infinity, 110);
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipe_app/core/core.dart';
+import 'package:recipe_app/core/l10n/app_localizations.dart';
 import 'package:recipe_app/features/home/presentation/widgets/trending/home_tranding_recipe.dart';
 
 class TrendingRecipeSection extends StatelessWidget {
@@ -17,7 +18,7 @@ class TrendingRecipeSection extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Trending Recipe",
+              MyLocalizations.of(context)!.trendingRecipe,
               style: TextStyle(
                   color: AppColors.redPinkMain,
                   fontSize: 15,

@@ -29,7 +29,7 @@ class ReviewView extends StatelessWidget {
               return const Center(child: Text("No reviews available"));
             }
             final recipe = state.recipeModel!;
-            final comments = state.comment!;
+            final comments = state.recipeModel!;
             return Column(
               children: [
                 ReviewRecipe(
@@ -40,9 +40,9 @@ class ReviewView extends StatelessWidget {
                 ),
                 Expanded(
                     child: ListView.builder(
-                      itemCount: comments.length,
+                      itemCount: state.comment!.length,
                       itemBuilder: (context, index) => ReviewComment(
-                            comment: comments[index],
+                            comment: state.comment![index],
                           ),
                     )
                 )

@@ -1,7 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:recipe_app/core/core.dart';
+import 'package:recipe_app/core/l10n/app_localizations.dart';
 import 'package:recipe_app/features/home/presentation/manager/home_view_model.dart';
 import 'package:recipe_app/features/home/presentation/widgets/top_chef_section_item.dart';
 
@@ -15,16 +17,18 @@ class TopChefSectionHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final vm = context.watch<HomeViewModel>();
-    return Padding(
+    return switch(vm.isLoading){
+      true => Center(child: CupertinoActivityIndicator(),),
+    false=> Padding(
       padding: EdgeInsets.symmetric(horizontal:36),
       child: GestureDetector(
-        onTap: () => context.go(Routes.topChefs),
+        onTap: () => context.push(Routes.topChefs),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           spacing: 9,
           children: [
             Text(
-              "Top Chef",
+              MyLocalizations.of(context)!.topChefs,
               style: TextStyle(
                   color: AppColors.redPinkMain,
                   fontSize: 15,
@@ -43,6 +47,7 @@ class TopChefSectionHome extends StatelessWidget {
           ],
         ),
       ),
-    );
+    )
+    };
   }
 }

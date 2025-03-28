@@ -1,9 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:recipe_app/core/client.dart';
 import 'package:recipe_app/core/data/repositories/notifications_repository.dart';
 import 'package:recipe_app/core/data/repositories/recipe_repository.dart';
+import 'package:recipe_app/core/data/repositories/top_chef_repository.dart';
 import 'package:recipe_app/core/routing/routes.dart';
 import 'package:recipe_app/features/categories/presentation/manager/categories_cubit.dart';
 import 'package:recipe_app/features/categories/presentation/pages/categories_view.dart';
@@ -11,7 +13,6 @@ import 'package:recipe_app/features/categories_detail/presentation/manager/categ
 import 'package:recipe_app/features/categories_detail/presentation/pages/categories_detail_view.dart';
 import 'package:recipe_app/features/chefs/blocs/top_chef_bloc.dart';
 import 'package:recipe_app/features/chefs/presentation/pages/top_chefs_pages/top_chefs_view.dart';
-import 'package:recipe_app/features/chefs/presentation/pages/top_chefs_profile_pages/top_chefs_profile_view.dart';
 import 'package:recipe_app/features/community/presentation/manager/community_view_model.dart';
 import 'package:recipe_app/features/community/presentation/pages/community_view.dart';
 import 'package:recipe_app/features/home/presentation/pages/home_view.dart';
@@ -23,8 +24,12 @@ import 'package:recipe_app/features/review/presentation/manager/reviews/reviews_
 import 'package:recipe_app/features/review/presentation/pages/add_review.dart';
 import 'package:recipe_app/features/review/presentation/pages/review_view.dart';
 import 'package:recipe_app/features/sign_up/presentation/pages/complete_profile_view.dart';
+import 'package:recipe_app/features/top_chef_detail/blocs/top_chef_detail_bloc.dart';
+import 'package:recipe_app/features/top_chef_detail/top_chefs_profile_pages/top_chefs_profile_view.dart';
 import 'package:recipe_app/features/trending_recipes/blocs/trending_bloc.dart';
 import 'package:recipe_app/features/trending_recipes/pages/trending_recipes_view.dart';
+import 'package:recipe_app/features/your_recipes/blocs/your_recipes_bloc.dart';
+import 'package:recipe_app/features/your_recipes/pages/your_recipe_view.dart';
 import '../../features/categories/data/models/categories_model.dart';
 import '../../features/notifications/bloc/notifications_bloc.dart';
 import '../../features/onboarding/presentation/manager/onboarding_view_model.dart';
@@ -37,13 +42,26 @@ import '../../main.dart';
 
 final GoRouter router = GoRouter(
   navigatorKey: navigatorKey,
+<<<<<<< HEAD
   initialLocation: Routes.follow,
+=======
+  initialLocation: Routes.home,
+>>>>>>> 0d56d36841311457522123761e85e77b32eccac0
   routes: [
     GoRoute(
-        path: Routes.home,
-        builder: (context, state) {
-          return HomeView();
-        }),
+      path: Routes.home,
+      pageBuilder: (context, state) => CustomTransitionPage(
+        transitionDuration: Duration(seconds: 3),
+        child: HomeView(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          final curve = CurvedAnimation(parent: animation, curve: Curves.easeOutQuart);
+          return SlideTransition(
+            position: Tween<Offset>(begin: Offset(0, 1), end: Offset.zero).animate(curve),
+            child: child,
+          );
+        },
+      ),
+    ),
     GoRoute(
       path: Routes.login,
       builder: (context, state) {
@@ -51,19 +69,21 @@ final GoRouter router = GoRouter(
       },
     ),
     GoRoute(
-        path: Routes.review,
-        builder: (context, state) => BlocProvider(
-              create: (context) => ReviewsBloc(
-                recipeRepo: context.read(),
-                recipeId: int.parse(state.pathParameters['recipeId']!),
-              ),
-              child: ReviewView(),
-            )),
+      path: Routes.review,
+      builder: (context, state) => BlocProvider(
+        create: (context) => ReviewsBloc(
+          recipeRepo: context.read(),
+          recipeId: int.parse(state.pathParameters['recipeId']!),
+        ),
+        child: ReviewView(),
+      ),
+    ),
     GoRoute(
-        path: Routes.completeProfile,
-        builder: (context, state) {
-          return CompleteProfileView();
-        }),
+      path: Routes.completeProfile,
+      builder: (context, state) {
+        return CompleteProfileView();
+      },
+    ),
     GoRoute(
       path: Routes.signup,
       builder: (context, state) => SignUpView(),
@@ -85,18 +105,22 @@ final GoRouter router = GoRouter(
       ),
     ),
     GoRoute(
-        path: Routes.categoriesDetail,
-        builder: (context, state) => CategoriesDetailView(
-            viewModel: CategoriesDetailViewModel(
-                repo: context.read(), catsRepo: context.read(), selected: state.extra as CategoryModel))),
+      path: Routes.categoriesDetail,
+      builder: (context, state) => CategoriesDetailView(
+        viewModel:
+            CategoriesDetailViewModel(repo: context.read(), catsRepo: context.read(), selected: state.extra as CategoryModel),
+      ),
+    ),
     GoRoute(
-        path: Routes.recipeDetail,
-        builder: (context, state) => ChangeNotifierProvider(
-            create: (context) => RecipeDetailViewmodel(
-                  repo: context.read(),
-                  recipeId: int.parse(state.pathParameters['recipeId']!),
-                ),
-            child: RecipeDetailView())),
+      path: Routes.recipeDetail,
+      builder: (context, state) => ChangeNotifierProvider(
+        create: (context) => RecipeDetailViewmodel(
+          repo: context.read(),
+          recipeId: int.parse(state.pathParameters['recipeId']!),
+        ),
+        child: RecipeDetailView(),
+      ),
+    ),
     GoRoute(
       path: Routes.community,
       builder: (context, state) => ChangeNotifierProvider(
@@ -126,10 +150,6 @@ final GoRouter router = GoRouter(
       ),
     ),
     GoRoute(
-      path: Routes.topChesProfile,
-      builder: (context, state) => TopChefsProfileView(),
-    ),
-    GoRoute(
       path: Routes.trendingRecipe,
       builder: (context, state) => BlocProvider(
         create: (context) => TrendingBloc(
@@ -140,9 +160,6 @@ final GoRouter router = GoRouter(
         child: TrendingRecipesView(),
       ),
     ),
-    // GoRoute(path: Routes.trendingRecipe,
-    //   builder: (context, state)=> TrendingRecipesView(),
-    // )
     GoRoute(
       path: Routes.notifications,
       builder: (context, state) => BlocProvider(
@@ -155,12 +172,34 @@ final GoRouter router = GoRouter(
       ),
     ),
     GoRoute(
+<<<<<<< HEAD
       path: Routes.myProfile,
       builder: (context, state) => ProfilePageView(),
     ),
     GoRoute(
       path: Routes.follow,
       builder: (context, state) => ProfileFollowersView(),
+=======
+      path: Routes.topChefDetail,
+      builder: (context, state) => BlocProvider(
+        create: (context) => TopChefDetailBloc(
+          profileId: int.parse(state.pathParameters['profileId']!),
+          repo: ChefRepository(
+            client: ApiClient(),
+          ),
+        ),
+        child: TopChefsProfileView(),
+      ),
+    ),
+    GoRoute(
+      path: Routes.yourRecipes,
+      builder: (context, state) => BlocProvider(
+        create: (context) => YourRecipeBloc(
+          repo: RecipeRepository(client: ApiClient()),
+        ),
+        child: YourRecipeView(),
+      ),
+>>>>>>> 0d56d36841311457522123761e85e77b32eccac0
     ),
   ],
 );

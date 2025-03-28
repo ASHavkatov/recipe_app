@@ -1,13 +1,13 @@
 import 'package:recipe_app/core/client.dart';
-import 'package:recipe_app/core/data/models/recipe_model_small.dart';
-import 'package:recipe_app/core/data/models/recipe_reviews_model.dart';
+import 'package:recipe_app/core/data/models/review/recipe_model_small.dart';
+import 'package:recipe_app/core/data/models/review/recipe_reviews_model.dart';
 import 'package:recipe_app/core/data/models/top_chef/top_chef_model_small.dart';
 import 'package:recipe_app/features/recipe_detail/data/models/recipes_model.dart';
 
 import '../../../features/categories_detail/data/models/categories_detail_model.dart';
 import '../../../features/community/data/models/community_model.dart';
-import '../models/recipe_create_review_model.dart';
-import '../models/recipe_reviews_comment_model.dart';
+import '../models/review/recipe_create_review_model.dart';
+import '../models/review/recipe_reviews_comment_model.dart';
 import '../models/trending_recipes/trending_recipe_model.dart';
 import '../models/trending_recipes/trending_recipes_model.dart';
 
@@ -47,10 +47,11 @@ class RecipeRepository{
     chefs = rawChefs.map((chef) => TopChefModelSmall.fromJson(chef)).toList();
     return chefs;
   }
-  Future<List<RecipeModelSmall>> fetchYourRecipes(int limit) async {
-    var rawRecipe = await client.fetchYourRecipes(limit);
+  Future<List<RecipeModelSmall>> fetchYourRecipes() async {
+    var rawRecipe = await client.fetchYourRecipes();
     return rawRecipe.map((recipe) => RecipeModelSmall.fromJson(recipe)).toList();
   }
+
   Future<List<RecipeModelSmall>> fetchRecentRecipes(int limit) async {
     var rawRecipes = await client.fetchRecentRecipes(limit);
     recentRecipes = rawRecipes.map((recipe) => RecipeModelSmall.fromJson(recipe)).toList();

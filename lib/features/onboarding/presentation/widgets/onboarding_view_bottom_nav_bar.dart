@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recipe_app/core/l10n/app_localizations.dart';
 
 import 'onboarding_elevatedbutton.dart';
 
@@ -11,14 +12,14 @@ class OnboardingViewBottomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 150,
+      height: 135,
       child: Padding(
         padding: EdgeInsets.all(10.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            OnboardingElevatedButton(callback: () {}, title: "I'm New"),
-            OnboardingElevatedButton(callback: () {}, title: "I've Been Here"),
+            OnboardingElevatedButton(callback: () {}, title: MyLocalizations.of(context)!.iAmNew),
+            OnboardingElevatedButton(callback: () {}, title: MyLocalizations.of(context)!.iHaveBeenHere),
           ],
         ),
       ),

@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'package:equatable/equatable.dart';
-import '../../../../../core/data/models/recipe_create_review_model.dart';
+import '../../../../../core/data/models/review/recipe_create_review_model.dart';
 
 enum CreateReviewStatus { idle, loading, error, submitted }
 

@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:recipe_app/core/data/models/recipe_model_small.dart';
+import 'package:recipe_app/core/data/models/review/recipe_model_small.dart';
 import 'package:recipe_app/core/data/models/top_chef/top_chef_model_small.dart';
 import 'package:recipe_app/features/categories_detail/data/models/categories_detail_model.dart';
 import '../../../categories/data/models/categories_model.dart';
@@ -33,7 +33,7 @@ class HomeViewModel extends ChangeNotifier {
     isLoading = true;
     notifyListeners();
     categories = await _catsRepo.fetchCategories();
-    yourRecipes = await _recipeRepo.fetchYourRecipes(2);
+    yourRecipes = await _recipeRepo.fetchYourRecipes();
     trendingRecipe = await _recipeRepo.fetchTrendingRecipe();
     chefs = await _recipeRepo.fetchTopChefs(4);
     recentRecipe = await _recipeRepo.fetchRecentRecipes(2);
