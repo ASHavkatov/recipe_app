@@ -45,13 +45,7 @@ class _BottomNavigationBarVanilla extends StatelessWidget {
             width: 25,
             height: 22,
             color: Colors.white,
-<<<<<<< HEAD
-            callback: () {
-              context.go(Routes.home);
-            },
-=======
             callback: () {context.go(Routes.home);},
->>>>>>> 0d56d36841311457522123761e85e77b32eccac0
           ),
           RecipeIconButton(
             image: "assets/svg/community.svg",

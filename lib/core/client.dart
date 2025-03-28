@@ -5,15 +5,10 @@ import 'package:recipe_app/core/interceptor.dart';
 import 'package:recipe_app/features/sign_up/data/models/auth_model.dart';
 
 class ApiClient {
-<<<<<<< HEAD
-  ApiClient() {dio = Dio(BaseOptions(baseUrl: "http://0.0.0.0:8888/api/v1", validateStatus: (status) => true));}
-late final Dio dio;
-=======
   ApiClient() {
     dio = Dio(BaseOptions(baseUrl: "http://10.10.1.238:8888/api/v1", validateStatus: (status) => true));
     dio.interceptors.add(AuthInterceptor());
   }
->>>>>>> 0d56d36841311457522123761e85e77b32eccac0
   
 
   late final Dio dio;
@@ -182,11 +177,8 @@ late final Dio dio;
   }
 
   Future uploadProfilePhoto(File file) async {
-<<<<<<< HEAD
-=======
     FormData formData = FormData.fromMap(
       {'file': await MultipartFile.fromFile(file.path, filename: file.path.split('/').last)},
     );
->>>>>>> 0d56d36841311457522123761e85e77b32eccac0
   }
 }

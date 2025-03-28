@@ -1,18 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-<<<<<<< HEAD
-import 'package:provider/provider.dart';
-import 'package:recipe_app/core/core.dart';
-=======
 import 'package:go_router/go_router.dart';
-import 'package:provider/provider.dart';
-import 'package:recipe_app/core/core.dart';
-import 'package:recipe_app/core/l10n/app_localizations.dart';
->>>>>>> 0d56d36841311457522123761e85e77b32eccac0
-import 'package:recipe_app/features/categories_detail/presentation/widgets/recipe_icon_button_container.dart';
-import 'package:recipe_app/features/home/presentation/manager/home_view_model.dart';
 
+import '../../../../core/l10n/app_localizations.dart';
+import '../../../../core/presentation/widgets/recipe_rating.dart';
+import '../../../../core/presentation/widgets/recipe_time.dart';
+import '../../../../core/utils/colors.dart';
+import '../../../categories_detail/presentation/widgets/recipe_icon_button_container.dart';
+import '../manager/home_view_model.dart';
 class TrendingRecipeContainerHome extends StatelessWidget {
   const TrendingRecipeContainerHome({
     super.key,

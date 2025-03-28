@@ -42,11 +42,8 @@ import '../../main.dart';
 
 final GoRouter router = GoRouter(
   navigatorKey: navigatorKey,
-<<<<<<< HEAD
-  initialLocation: Routes.follow,
-=======
+
   initialLocation: Routes.home,
->>>>>>> 0d56d36841311457522123761e85e77b32eccac0
   routes: [
     GoRoute(
       path: Routes.home,
@@ -172,14 +169,10 @@ final GoRouter router = GoRouter(
       ),
     ),
     GoRoute(
-<<<<<<< HEAD
       path: Routes.myProfile,
       builder: (context, state) => ProfilePageView(),
     ),
     GoRoute(
-      path: Routes.follow,
-      builder: (context, state) => ProfileFollowersView(),
-=======
       path: Routes.topChefDetail,
       builder: (context, state) => BlocProvider(
         create: (context) => TopChefDetailBloc(
@@ -199,7 +192,10 @@ final GoRouter router = GoRouter(
         ),
         child: YourRecipeView(),
       ),
->>>>>>> 0d56d36841311457522123761e85e77b32eccac0
+    ),
+    GoRoute(
+      path: Routes.follow,
+      builder: (context, state) => ProfileFollowersView(),
     ),
   ],
 );
