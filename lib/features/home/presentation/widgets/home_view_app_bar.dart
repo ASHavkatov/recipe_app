@@ -34,7 +34,7 @@ class HomeViewAppBar extends StatelessWidget implements PreferredSizeWidget {
             spacing: 5,
             children: [
               GestureDetector(
-                onTap: () => context.go(Routes.notifications),
+                onTap: () => context.push(Routes.notifications),
                 child: Container(
                   width: 28,
                   height: 28,

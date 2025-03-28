@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:recipe_app/features/categories_detail/data/models/categories_detail_model.dart';
-
 import '../../../../core/routing/routes.dart';
 
 class ProfileItem extends StatelessWidget {
