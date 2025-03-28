@@ -26,9 +26,7 @@ class RecipeBottomNavigationBar extends StatelessWidget {
 }
 
 class _BottomNavigationBarVanilla extends StatelessWidget {
-  const _BottomNavigationBarVanilla({
-    super.key,
-  });
+  const _BottomNavigationBarVanilla();
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +45,7 @@ class _BottomNavigationBarVanilla extends StatelessWidget {
             width: 25,
             height: 22,
             color: Colors.white,
-            callback: () {},
+            callback: () {context.go(Routes.home);},
           ),
           RecipeIconButton(
             image: "assets/svg/community.svg",
@@ -69,6 +67,7 @@ class _BottomNavigationBarVanilla extends StatelessWidget {
             height: 22,
             color: Colors.white,
             callback: () => context.go(Routes.yourRecipes),
+
           )
         ],
       ),

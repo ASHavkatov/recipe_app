@@ -4,7 +4,6 @@ import "package:flutter_svg/flutter_svg.dart";
 import "package:go_router/go_router.dart";
 import "package:recipe_app/core/core.dart";
 import "package:recipe_app/core/routing/routes.dart";
-import 'package:recipe_app/features/review/presentation/widgets/recipe_review_user_image.dart';
 
 class RecipeReviewTitle extends StatelessWidget {
   const RecipeReviewTitle({

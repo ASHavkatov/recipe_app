@@ -2,7 +2,7 @@ class MyProfileModel {
   final int id;
   final String image;
   final String username;
-  final String fullName;
+  final String firstname,lastname;
   final String presentation;
   final int recipesCount;
   final int followingCount;
@@ -12,7 +12,8 @@ class MyProfileModel {
     required this.id,
     required this.image,
     required this.username,
-    required this.fullName,
+    required this.firstname,
+    required this.lastname,
     required this.presentation,
     required this.recipesCount,
     required this.followingCount,
@@ -24,7 +25,8 @@ class MyProfileModel {
       id: json['id'],
       image: json['profilePhoto'],
       username: json['username'],
-      fullName: json['fullName'],
+      firstname: json['firstName'],
+      lastname: json['lastName'],
       presentation: json['presentation'],
       recipesCount: json['recipesCount'],
       followingCount: json['followingCount'],

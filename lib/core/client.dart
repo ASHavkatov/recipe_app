@@ -134,10 +134,23 @@ class ApiClient {
     if (response.statusCode == 200) {
       return response.data as T;
     } else {
-      print('${response.data}, 1111111111111111111');
       throw DioException(requestOptions: response.requestOptions, response: response);
     }
   }
+  Future<T> genericPostRequest<T>(String path, Map<String, dynamic> data, {Map<String, String>? headers}) async {
+    var response = await dio.post(
+      path,
+      data: data,
+      options: Options(headers: headers),
+    );
+
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      return response.data as T;
+    } else {
+      throw DioException(requestOptions: response.requestOptions, response: response);
+    }
+  }
+
 
   Future<String> login(String login, String password) async {
 

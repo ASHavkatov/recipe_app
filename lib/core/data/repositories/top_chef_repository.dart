@@ -39,7 +39,7 @@ class ChefRepository{
   }
   
   Future<TopChefProfileModel> fetchTopChefProfile(int profileId) async{
-    var rawChef = await client.genericGetRequest<dynamic>('/auth/details/$profileId');
+    var rawChef = await client.genericGetRequest<dynamic>("/auth/details/$profileId");
     topChefProfile = TopChefProfileModel.fromJson(rawChef);
     return topChefProfile!;
   }

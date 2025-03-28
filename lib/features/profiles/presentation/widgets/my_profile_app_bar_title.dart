@@ -24,7 +24,7 @@ class MyProfileAppBarTitle extends StatelessWidget {
         spacing: 5,
         children: [
           Text(
-            vm.myProfile!.fullName,
+            vm.myProfile!.firstname,
             style: TextStyle(
               fontFamily: "Poppins",
               color: AppColors.redPinkMain,
