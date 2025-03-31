@@ -6,7 +6,7 @@ import 'package:recipe_app/features/sign_up/data/models/auth_model.dart';
 class ApiClient {
   ApiClient() {
     dio = Dio(
-      BaseOptions(baseUrl: "http://192.168.11.60:8888/api/v1", validateStatus: (status) => true),
+      BaseOptions(baseUrl: "http://172.20.10.5:8888/api/v1", validateStatus: (status) => true),
     );
   }
 
