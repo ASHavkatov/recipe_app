@@ -7,4 +7,6 @@ class AppColors {
   static const pink = Color(0xFFFFC6C9);
   static const textColorCon = Color(0xFF3E2823);
   static const containerColor = Color(0xFFFFFDF9) ;
+  static const brownish = Color(0xFF8D6A6B);
+
 }

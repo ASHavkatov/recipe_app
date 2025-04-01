@@ -5,7 +5,9 @@ import 'package:recipe_app/core/core.dart';
 import 'package:recipe_app/core/presentation/widgets/recipe_elevated_button.dart';
 import 'package:recipe_app/core/sizes.dart';
 import 'package:recipe_app/features/categories/presentation/widgets/recipe_bottom_navigationbar.dart';
-import 'package:recipe_app/features/profile_followers/presentation/wifgets/followers_app_bar.dart';
+import 'package:recipe_app/features/followers_and_following/wifgets/recipe_text_form_field.dart';
+
+import '../wifgets/followers_app_bar.dart';
 
 class ProfileFollowersView extends StatelessWidget {
   const ProfileFollowersView({super.key});
@@ -25,29 +27,7 @@ class ProfileFollowersView extends StatelessWidget {
               Column(
                 children: [
                   SizedBox(height: 10),
-                  SizedBox(
-                    width: 355.w,
-                    height: 34.h,
-                    child: TextFormField(
-                      controller: searchController,
-                      decoration: InputDecoration(
-                        contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 12.w),
-                        hintText: "Search",
-                        hintStyle: TextStyle(
-                          color: AppColors.redPinkMain,
-                          fontFamily: "Poppins",
-                          fontSize: 12.sp,
-                          fontWeight: FontWeight.w500,
-                        ),
-                        filled: true,
-                        fillColor: AppColors.pink,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30),
-                          borderSide: BorderSide.none,
-                        ),
-                      ),
-                    ),
-                  ),
+                  RecipeTextFormField(text: "Search", textController: searchController),
                   SizedBox(
                     height: 20,
                   ),
@@ -118,29 +98,7 @@ class ProfileFollowersView extends StatelessWidget {
               Column(
                 children: [
                   SizedBox(height: 10),
-                  SizedBox(
-                    width: 355.w,
-                    height: 34.h,
-                    child: TextFormField(
-                      controller: searchController,
-                      decoration: InputDecoration(
-                        contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 12.w),
-                        hintText: "Search",
-                        hintStyle: TextStyle(
-                          color: AppColors.redPinkMain,
-                          fontFamily: "Poppins",
-                          fontSize: 12.sp,
-                          fontWeight: FontWeight.w500,
-                        ),
-                        filled: true,
-                        fillColor: AppColors.pink,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30),
-                          borderSide: BorderSide.none,
-                        ),
-                      ),
-                    ),
-                  ),
+                  RecipeTextFormField(text: "Search", textController: searchController),
                   SizedBox(
                     height: 20,
                   ),
