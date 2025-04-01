@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:recipe_app/core/client.dart';
+import 'package:recipe_app/core/data/repositories/follow_and_following_repository.dart';
 import 'package:recipe_app/core/data/repositories/notifications_repository.dart';
 import 'package:recipe_app/core/data/repositories/recipe_repository.dart';
 import 'package:recipe_app/core/data/repositories/top_chef_repository.dart';
@@ -15,6 +16,8 @@ import 'package:recipe_app/features/chefs/blocs/top_chef_bloc.dart';
 import 'package:recipe_app/features/chefs/presentation/pages/top_chefs_pages/top_chefs_view.dart';
 import 'package:recipe_app/features/community/presentation/manager/community_view_model.dart';
 import 'package:recipe_app/features/community/presentation/pages/community_view.dart';
+import 'package:recipe_app/features/followers_and_following/blocs/followers_and_following_bloc.dart';
+import 'package:recipe_app/features/followers_and_following/pages/follow_view.dart';
 import 'package:recipe_app/features/home/presentation/pages/home_view.dart';
 import 'package:recipe_app/features/notifications/presentation/pages/notifications_view.dart';
 import 'package:recipe_app/features/profile_followers/presentation/pages/profile_followers_view.dart';
@@ -23,6 +26,7 @@ import 'package:recipe_app/features/recipe_detail/presentation/pages/recipe_deta
 import 'package:recipe_app/features/review/presentation/manager/reviews/reviews_bloc.dart';
 import 'package:recipe_app/features/review/presentation/pages/add_review.dart';
 import 'package:recipe_app/features/review/presentation/pages/review_view.dart';
+import 'package:recipe_app/features/sign_up/data/repositories/sign_repository.dart';
 import 'package:recipe_app/features/sign_up/presentation/pages/complete_profile_view.dart';
 import 'package:recipe_app/features/top_chef_detail/blocs/top_chef_detail_bloc.dart';
 import 'package:recipe_app/features/top_chef_detail/top_chefs_profile_pages/top_chefs_profile_view.dart';
@@ -43,7 +47,6 @@ import '../../main.dart';
 final GoRouter router = GoRouter(
   navigatorKey: navigatorKey,
   initialLocation: Routes.follow,
-
   routes: [
     GoRoute(
       path: Routes.home,
@@ -195,7 +198,15 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: Routes.follow,
-      builder: (context, state) => ProfileFollowersView(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => FollowBloc(
+          repo: FollowersAndFollowingRepository(
+            client: ApiClient(),
+          ),
+          userId: 2,
+        ),
+        child: FollowView(),
+      ),
     ),
   ],
 );
