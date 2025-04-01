@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:recipe_app/core/client.dart';
-import 'package:recipe_app/core/data/repositories/follow_and_following_repository.dart';
 import 'package:recipe_app/core/data/repositories/notifications_repository.dart';
 import 'package:recipe_app/core/data/repositories/recipe_repository.dart';
 import 'package:recipe_app/core/data/repositories/top_chef_repository.dart';
@@ -25,7 +24,6 @@ import 'package:recipe_app/features/recipe_detail/presentation/pages/recipe_deta
 import 'package:recipe_app/features/review/presentation/manager/reviews/reviews_bloc.dart';
 import 'package:recipe_app/features/review/presentation/pages/add_review.dart';
 import 'package:recipe_app/features/review/presentation/pages/review_view.dart';
-import 'package:recipe_app/features/sign_up/data/repositories/sign_repository.dart';
 import 'package:recipe_app/features/sign_up/presentation/pages/complete_profile_view.dart';
 import 'package:recipe_app/features/top_chef_detail/blocs/top_chef_detail_bloc.dart';
 import 'package:recipe_app/features/top_chef_detail/top_chefs_profile_pages/top_chefs_profile_view.dart';
@@ -45,7 +43,7 @@ import '../../main.dart';
 
 final GoRouter router = GoRouter(
   navigatorKey: navigatorKey,
-  initialLocation: Routes.home,
+  initialLocation: Routes.follow,
   routes: [
     GoRoute(
       path: Routes.home,

@@ -32,7 +32,7 @@ class ProfileFollowersView extends StatelessWidget {
                     userName: "neil_t",
                     name: "neil_trant",
                     userImage: "assets/image/andrew.png",
-                    following: false,
+                    following: true,
                   )
                 ],
               ),
