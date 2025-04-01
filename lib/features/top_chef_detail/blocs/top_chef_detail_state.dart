@@ -3,7 +3,7 @@ import 'package:recipe_app/core/data/models/top_chef/top_chef_profile_model.dart
 
 enum TopChefDetailStatus { idle, loading, error, success }
 
-class TopChefDetailState extends Equatable{
+class TopChefDetailState extends Equatable {
   final TopChefProfileModel? chefProfileModel;
   final TopChefDetailStatus status;
 
@@ -19,12 +19,16 @@ class TopChefDetailState extends Equatable{
     );
   }
 
-  TopChefDetailState copyWith({TopChefProfileModel? chefProfileModel, TopChefDetailStatus? topChefDetailStatus}) {
+  TopChefDetailState copyWith({
+    TopChefProfileModel? chefProfileModel,
+    TopChefDetailStatus? topChefDetailStatus,
+  }) {
     return TopChefDetailState(
       chefProfileModel: chefProfileModel ?? this.chefProfileModel,
       status: topChefDetailStatus ?? this.status,
     );
   }
+
   @override
-  List<Object?> get props => [chefProfileModel,status];
+  List<Object?> get props => [chefProfileModel, status];
 }

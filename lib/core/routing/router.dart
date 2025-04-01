@@ -46,17 +46,17 @@ import '../../main.dart';
 
 final GoRouter router = GoRouter(
   navigatorKey: navigatorKey,
-  initialLocation: Routes.follow,
+  initialLocation: Routes.home,
   routes: [
     GoRoute(
       path: Routes.home,
       pageBuilder: (context, state) => CustomTransitionPage(
-        transitionDuration: Duration(seconds: 3),
+        transitionDuration: Duration(seconds: 2),
         child: HomeView(),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
-          final curve = CurvedAnimation(parent: animation, curve: Curves.bounceIn);
+          final curve = CurvedAnimation(parent: animation, curve: Curves.bounceOut);
           return SlideTransition(
-            position: Tween<Offset>(begin: Offset(0, 1), end: Offset.zero).animate(curve),
+            position: Tween<Offset>(begin: Offset(1, 0), end: Offset.zero).animate(curve),
             child: child,
           );
         },
@@ -200,10 +200,8 @@ final GoRouter router = GoRouter(
       path: Routes.follow,
       builder: (context, state) => BlocProvider(
         create: (context) => FollowBloc(
-          repo: FollowersAndFollowingRepository(
-            client: ApiClient(),
-          ),
-          userId: 2,
+          repo: context.read(),
+          userId: 3,
         ),
         child: FollowView(),
       ),

@@ -10,6 +10,7 @@ class FollowersAndFollowingRepository {
   Future<List<FollowersAndFollowingModel>> fetchFollowers(int id)async{
     var rawFollowers = await client.genericGetRequest<List<dynamic>>('/auth/followers/$id');
     followersModel = rawFollowers.map((e)=> FollowersAndFollowingModel.fromJson(e)).toList();
+    print("${followersModel.first}");
     if (followersModel.isNotEmpty) {
       return followersModel;
     }  else{
