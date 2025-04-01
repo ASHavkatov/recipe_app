@@ -12,5 +12,13 @@ class Instructions{
         title: json['text'],
         order: json['order']
     );
+
+  }
+
+  Map<String, dynamic>toJson(){
+    return{
+      "text": title,
+      "order": order,
+    };
   }
 }
