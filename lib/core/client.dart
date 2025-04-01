@@ -1,17 +1,21 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
+import 'package:recipe_app/core/data/models/recipe_create/recipe_create_model.dart';
 import 'package:recipe_app/core/data/models/review/create_review_model.dart';
 import 'package:recipe_app/core/interceptor.dart';
 import 'package:recipe_app/features/sign_up/data/models/auth_model.dart';
 
 class ApiClient {
+  late final Dio dio;
+
   ApiClient() {
-    dio = Dio(BaseOptions(baseUrl: "http://10.10.1.198:8888/api/v1", validateStatus: (status) => true));
+
+    dio = Dio(BaseOptions(baseUrl: "http://192.168.199.51:8888/api/v1", validateStatus: (status) => true));
     dio.interceptors.add(AuthInterceptor());
   }
-  
 
-  late final Dio dio;
+
+
 
   Future<List<dynamic>> fetchCommunity(int? limit, String? order, bool descending) async {
     var response = await dio.get('/recipes/community/list?Limit=$limit&Order$order&Descending$descending');
@@ -110,6 +114,25 @@ class ApiClient {
     }
   }
 
+  Future<bool> fetchCreateRecipe(RecipeCreateModel model) async {
+    final formData = FormData.fromMap(await model.toJson());
+    final response = await dio.post(
+      '/recipes/create',
+      options: Options(
+        headers: {
+          "Authorization":
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZHJld0BnbWFpbC5jb20iLCJqdGkiOiI1MGY3OWUzMi04OWExLTQ2ZGEtOWVkMi04NmEwNGY2YTkyNjgiLCJ1c2VyaWQiOiIxIiwiZXhwIjoxODM2OTk3OTMwLCJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJhdWRpZW5jZSJ9.fPJTubTifP1m4F1U9NgbOBiOmUg_fQr_tRadPHSfz10"
+        },
+      ),
+      data: formData,
+    );
+    if (response.statusCode == 201) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   Future<bool> createReview(CreateReviewModel model) async {
     final formData = FormData.fromMap(await model.toJson());
     final response = await dio.post(
@@ -137,6 +160,16 @@ class ApiClient {
       throw DioException(requestOptions: response.requestOptions, response: response);
     }
   }
+
+  Future<dynamic> genericDeleteRequest(String path) async {
+    var response = await dio.delete(path);
+    if (response.statusCode == 200) {
+      return response.data;
+    } else {
+      throw Exception("Delete qilishda hatolik bor");
+    }
+  }
+
   Future<T> genericPostRequest<T>(String path, Map<String, dynamic> data, {Map<String, String>? headers}) async {
     var response = await dio.post(
       path,
@@ -151,9 +184,7 @@ class ApiClient {
     }
   }
 
-
   Future<String> login(String login, String password) async {
-
     var response = await dio.post('/auth/login', data: {'login': login, 'password': password});
     if (response.statusCode == 200) {
       Map<String, String> data = Map<String, String>.from(response.data);
