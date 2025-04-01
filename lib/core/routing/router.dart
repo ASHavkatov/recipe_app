@@ -18,6 +18,7 @@ import 'package:recipe_app/features/community/presentation/manager/community_vie
 import 'package:recipe_app/features/community/presentation/pages/community_view.dart';
 import 'package:recipe_app/features/followers_and_following/blocs/followers_and_following_bloc.dart';
 import 'package:recipe_app/features/followers_and_following/pages/follow_view.dart';
+import 'package:recipe_app/features/followers_and_following/pages/profile_followers_view.dart';
 import 'package:recipe_app/features/home/presentation/pages/home_view.dart';
 import 'package:recipe_app/features/notifications/presentation/pages/notifications_view.dart';
 import 'package:recipe_app/features/recipe_detail/presentation/manager/recipe_detail_viewmodel.dart';
@@ -202,7 +203,7 @@ final GoRouter router = GoRouter(
           repo: context.read(),
           userId: 3,
         ),
-        child: FollowView(),
+        child: ProfileFollowersView(),
       ),
     ),
   ],
