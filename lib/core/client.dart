@@ -6,10 +6,9 @@ import 'package:recipe_app/features/sign_up/data/models/auth_model.dart';
 
 class ApiClient {
   ApiClient() {
+
     dio = Dio(BaseOptions(baseUrl: "http://10.10.1.238:8888/api/v1", validateStatus: (status) => true));
     dio.interceptors.add(AuthInterceptor());
-  }
-  
 
   late final Dio dio;
 
