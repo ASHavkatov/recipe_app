@@ -13,7 +13,6 @@ class ProfileFollowersView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextEditingController searchController = TextEditingController();
-
     return DefaultTabController(
       length: 2,
       child: Scaffold(

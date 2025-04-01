@@ -19,22 +19,23 @@ class FollowView extends StatelessWidget {
             case FollowAndFollowerStatus.error:
               return const Center(child: Text("An error occurred"));
             case FollowAndFollowerStatus.success:
-              if (state.following.isEmpty) {
-                return const Center(child: Text("No following users"));
-              }
               return ListView.builder(
-                itemCount: state.following.length,
+                itemCount: state.followers.length,
                 itemBuilder: (context, index) {
-                  return ListTile(
-                    leading: CircleAvatar(
-                      backgroundImage:
-                      NetworkImage(state.following[index].profilePhoto),
-                    ),
-                    title: Text(state.following[index].username),
+                  // final user = state.following[index];
+                  final user2 = state.followers[index];
+                  return Column(
+                    children: [
+                      // Image.network(user.profilePhoto, width: 50, height: 50, fit: BoxFit.cover),
+                      Image.network(user2.profilePhoto, width: 200, height: 200, fit: BoxFit.cover)
+                    ],
                   );
                 },
               );
+            default:
+              return const Center(child: Text("Unknown state"));
           }
+
         },
       ),
     );
