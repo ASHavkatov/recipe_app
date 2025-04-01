@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:recipe_app/core/core.dart';
-import 'package:recipe_app/core/presentation/widgets/recipe_elevated_button.dart';
 import 'package:recipe_app/core/sizes.dart';
 import 'package:recipe_app/features/categories/presentation/widgets/recipe_bottom_navigationbar.dart';
+import 'package:recipe_app/features/followers_and_following/wifgets/follow_user.dart';
 import 'package:recipe_app/features/followers_and_following/wifgets/recipe_text_form_field.dart';
 
 import '../wifgets/followers_app_bar.dart';
@@ -31,67 +28,11 @@ class ProfileFollowersView extends StatelessWidget {
                   SizedBox(
                     height: 20,
                   ),
-                  Container(
-                    width: double.infinity,
-                    height: 63.h,
-                    color: AppColors.beigeColor,
-                    child: Row(
-                      spacing: 15,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(32),
-                          child: Image.asset(
-                            'assets/top_chefs/andrew.png',
-                            width: 61.w,
-                            height: 63.h,
-                          ),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "@neil_tran",
-                              style: TextStyle(
-                                color: AppColors.redPinkMain,
-                                fontWeight: FontWeight.w400,
-                                fontSize: 12,
-                                fontFamily: "Poppins",
-                              ),
-                            ),
-                            Text(
-                              "Neil Tran-Chef",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontFamily: "Poppins",
-                                fontSize: 14,
-                                fontWeight: FontWeight.w300,
-                              ),
-                            )
-                          ],
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Row(
-                          spacing: 9,
-                          children: [
-                            RecipeElevatedButton(
-                              text: "Following",
-                              callback: () {},
-                              size: Size(109.w, 21.h),
-                            ),
-                            SvgPicture.asset(
-                              "assets/svg/three_dots.svg",
-                              width: 4.w,
-                              height: 15.h,
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
+                  FollowUser(
+                    userName: "neil_t",
+                    name: "neil_trant",
+                    userImage: "assets/image/andrew.png",
+                    following: false,
                   )
                 ],
               ),
@@ -102,67 +43,11 @@ class ProfileFollowersView extends StatelessWidget {
                   SizedBox(
                     height: 20,
                   ),
-                  Container(
-                    width: double.infinity,
-                    height: 63.h,
-                    color: AppColors.beigeColor,
-                    child: Row(
-                      spacing: 15,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(32),
-                          child: Image.asset(
-                            'assets/top_chefs/andrew.png',
-                            width: 61.w,
-                            height: 63.h,
-                          ),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "@neil_tran",
-                              style: TextStyle(
-                                color: AppColors.redPinkMain,
-                                fontWeight: FontWeight.w400,
-                                fontSize: 12,
-                                fontFamily: "Poppins",
-                              ),
-                            ),
-                            Text(
-                              "Neil Tran-Chef",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontFamily: "Poppins",
-                                fontSize: 14,
-                                fontWeight: FontWeight.w300,
-                              ),
-                            )
-                          ],
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Row(
-                          spacing: 9,
-                          children: [
-                            RecipeElevatedButton(
-                              text: "Follower",
-                              callback: () {},
-                              size: Size(109.w, 21.h),
-                            ),
-                            SvgPicture.asset(
-                              "assets/svg/three_dots.svg",
-                              width: 4.w,
-                              height: 15.h,
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
+                  FollowUser(
+                    userName: "neil_t",
+                    name: "neil_trant",
+                    userImage: "assets/image/andrew.png",
+                    following: false,
                   )
                 ],
               ),
