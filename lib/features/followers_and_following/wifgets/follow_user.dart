@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -37,10 +38,10 @@ class FollowUser extends StatelessWidget {
             },
             child: ClipRRect(
               borderRadius: BorderRadius.circular(32),
-              child: Image.asset(
-                userImage,
-                width: 61.w,
-                height: 63.h,
+              child: CachedNetworkImage(
+                imageUrl: userImage,
+                  width: 61.w,
+                  height: 63.h,
               ),
             ),
           ),
