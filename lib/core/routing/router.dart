@@ -20,7 +20,6 @@ import 'package:recipe_app/features/followers_and_following/blocs/followers_and_
 import 'package:recipe_app/features/followers_and_following/pages/follow_view.dart';
 import 'package:recipe_app/features/home/presentation/pages/home_view.dart';
 import 'package:recipe_app/features/notifications/presentation/pages/notifications_view.dart';
-import 'package:recipe_app/features/profile_followers/presentation/pages/profile_followers_view.dart';
 import 'package:recipe_app/features/recipe_detail/presentation/manager/recipe_detail_viewmodel.dart';
 import 'package:recipe_app/features/recipe_detail/presentation/pages/recipe_detail_view.dart';
 import 'package:recipe_app/features/review/presentation/manager/reviews/reviews_bloc.dart';
