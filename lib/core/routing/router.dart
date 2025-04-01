@@ -54,7 +54,7 @@ final GoRouter router = GoRouter(
         transitionDuration: Duration(seconds: 3),
         child: HomeView(),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
-          final curve = CurvedAnimation(parent: animation, curve: Curves.easeOutQuart);
+          final curve = CurvedAnimation(parent: animation, curve: Curves.bounceIn);
           return SlideTransition(
             position: Tween<Offset>(begin: Offset(0, 1), end: Offset.zero).animate(curve),
             child: child,
