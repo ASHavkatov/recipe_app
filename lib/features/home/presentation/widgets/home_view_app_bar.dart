@@ -17,7 +17,6 @@ class HomeViewAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title, subtitle;
 
   @override
-  // TODO: implement preferredSize
   Size get preferredSize => const Size(double.infinity, 110);
   @override
   Widget build(BuildContext context) {
@@ -35,7 +34,7 @@ class HomeViewAppBar extends StatelessWidget implements PreferredSizeWidget {
             spacing: 5,
             children: [
               GestureDetector(
-                onTap: () => context.go(Routes.notifications),
+                onTap: () => context.push(Routes.notifications),
                 child: Container(
                   width: 28,
                   height: 28,

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:recipe_app/core/core.dart';
 import 'package:recipe_app/features/profiles/presentation/widgets/profile_app_bar_bottom_stats.dart';
 
+import '../../../../core/routing/routes.dart';
 import '../pages/my_profile_view_model.dart';
 
 class MyProfileAppBarBottomContainer extends StatelessWidget {
@@ -34,18 +36,28 @@ class MyProfileAppBarBottomContainer extends StatelessWidget {
             width: 2,
             color: AppColors.pink,
           ),
-          ProfileAppBarBottomStats(
-            number: vm.myProfile!.followingCount,
-            subtitle: "following",
+          GestureDetector(
+            onTap:(){
+              context.push(Routes.follow);
+            },
+            child: ProfileAppBarBottomStats(
+              number: vm.myProfile!.followingCount,
+              subtitle: "following",
+            ),
           ),
           Container(
             height: 26,
             width: 2,
             color: AppColors.pink,
           ),
-          ProfileAppBarBottomStats(
-            number: vm.myProfile!.followerCount,
-            subtitle: "followers",
+          GestureDetector(
+            onTap: (){
+              context.push(Routes.follow);
+            },
+            child: ProfileAppBarBottomStats(
+              number: vm.myProfile!.followerCount,
+              subtitle: "followers",
+            ),
           ),
         ],
       ),

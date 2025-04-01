@@ -5,7 +5,7 @@ import 'package:flutter_svg/svg.dart';
 
 import 'package:recipe_app/core/utils/colors.dart';
 
-import '../../../../core/data/models/recipe_reviews_comment_model.dart';
+import '../../../../core/data/models/review/recipe_reviews_comment_model.dart';
 
 class ReviewComment extends StatelessWidget {
   const ReviewComment({

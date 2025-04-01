@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:recipe_app/core/core.dart';
-import 'package:recipe_app/core/routing/routes.dart';
 import 'package:recipe_app/features/categories/presentation/widgets/recipe_appbar.dart';
 import 'package:recipe_app/features/categories/presentation/widgets/recipe_bottom_navigationbar.dart';
 import 'package:recipe_app/features/community/presentation/manager/community_view_model.dart';

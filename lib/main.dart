@@ -5,6 +5,7 @@
 import 'package:recipe_app/core/core.dart';
   import 'package:recipe_app/core/dependencies.dart' show providers;
   import 'package:recipe_app/core/l10n/localization.dart';
+import 'package:recipe_app/core/sizes.dart';
   import 'core/l10n/app_localizations.dart';
   import 'core/routing/router.dart';
 
@@ -22,6 +23,7 @@ import 'package:recipe_app/core/core.dart';
     @override
     Widget build(BuildContext context) {
       ScreenUtil.init(context, designSize: Size(430, 932));
+      AppSizes.init(context);
       return MultiProvider(
         providers: providers,
         builder:(context, child)=> MaterialApp.router(

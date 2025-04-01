@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import 'bottom_buttons_row.dart';
 import 'bottom_tab_bar.dart';

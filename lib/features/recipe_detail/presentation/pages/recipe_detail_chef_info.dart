@@ -1,15 +1,6 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:provider/provider.dart';
 import 'package:recipe_app/core/core.dart';
 import 'package:recipe_app/features/recipe_detail/data/models/user_model.dart';
-import 'package:recipe_app/features/recipe_detail/presentation/manager/recipe_detail_viewmodel.dart';
-import 'package:recipe_app/features/recipe_detail/presentation/pages/recipe_detail.dart';
-import 'package:recipe_app/features/recipe_detail/presentation/pages/recipe_detail_app_bar.dart';
-
-import '../../../../core/routing/routes.dart';
 import '../../../../core/utils/colors.dart';
 
 class RecipeDetailChefInfo extends StatelessWidget {

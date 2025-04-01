@@ -17,6 +17,7 @@ import 'package:recipe_app/features/community/presentation/manager/community_vie
 import 'package:recipe_app/features/community/presentation/pages/community_view.dart';
 import 'package:recipe_app/features/home/presentation/pages/home_view.dart';
 import 'package:recipe_app/features/notifications/presentation/pages/notifications_view.dart';
+import 'package:recipe_app/features/profile_followers/presentation/pages/profile_followers_view.dart';
 import 'package:recipe_app/features/recipe_detail/presentation/manager/recipe_detail_viewmodel.dart';
 import 'package:recipe_app/features/recipe_detail/presentation/pages/recipe_detail_view.dart';
 import 'package:recipe_app/features/review/presentation/manager/reviews/reviews_bloc.dart';
@@ -27,11 +28,13 @@ import 'package:recipe_app/features/top_chef_detail/blocs/top_chef_detail_bloc.d
 import 'package:recipe_app/features/top_chef_detail/top_chefs_profile_pages/top_chefs_profile_view.dart';
 import 'package:recipe_app/features/trending_recipes/blocs/trending_bloc.dart';
 import 'package:recipe_app/features/trending_recipes/pages/trending_recipes_view.dart';
+import 'package:recipe_app/features/your_recipes/blocs/your_recipes_bloc.dart';
 import 'package:recipe_app/features/your_recipes/pages/your_recipe_view.dart';
 import '../../features/categories/data/models/categories_model.dart';
 import '../../features/notifications/bloc/notifications_bloc.dart';
 import '../../features/onboarding/presentation/manager/onboarding_view_model.dart';
 import '../../features/onboarding/presentation/pages/onboarding_view.dart';
+import '../../features/profiles/presentation/pages/profile_page_view.dart';
 import '../../features/review/presentation/manager/create_review/create_review_bloc.dart';
 import '../../features/sign_up/presentation/pages/login_view.dart';
 import '../../features/sign_up/presentation/pages/sign_up_view.dart';
@@ -39,7 +42,8 @@ import '../../main.dart';
 
 final GoRouter router = GoRouter(
   navigatorKey: navigatorKey,
-  initialLocation: Routes.home,
+  initialLocation: Routes.follow,
+
   routes: [
     GoRoute(
       path: Routes.home,
@@ -165,6 +169,10 @@ final GoRouter router = GoRouter(
       ),
     ),
     GoRoute(
+      path: Routes.myProfile,
+      builder: (context, state) => ProfilePageView(),
+    ),
+    GoRoute(
       path: Routes.topChefDetail,
       builder: (context, state) => BlocProvider(
         create: (context) => TopChefDetailBloc(
@@ -176,6 +184,18 @@ final GoRouter router = GoRouter(
         child: TopChefsProfileView(),
       ),
     ),
-    GoRoute(path: Routes.yourRecipes, builder: (context, state) => YourRecipeView())
+    GoRoute(
+      path: Routes.yourRecipes,
+      builder: (context, state) => BlocProvider(
+        create: (context) => YourRecipeBloc(
+          repo: RecipeRepository(client: ApiClient()),
+        ),
+        child: YourRecipeView(),
+      ),
+    ),
+    GoRoute(
+      path: Routes.follow,
+      builder: (context, state) => ProfileFollowersView(),
+    ),
   ],
 );

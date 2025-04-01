@@ -4,7 +4,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:recipe_app/core/core.dart';
 
 class RecipeStack extends StatelessWidget {
-  const RecipeStack({super.key});
+  const RecipeStack({super.key, required this.rating, required this.time, required this.title, required this.image});
+  final String title, rating, time, image;
 
   @override
   Widget build(BuildContext context) {
@@ -13,8 +14,8 @@ class RecipeStack extends StatelessWidget {
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(14),
-          child: Image(
-            image: AssetImage("assets/images/breakfast.png"),
+          child: Image.network(
+             image,
             width: 168.w,
             height: 162.h,
             fit: BoxFit.cover,
@@ -34,8 +35,7 @@ class RecipeStack extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               spacing: 2,
               children: [
-                Text(
-                  "Chicken Burger",
+                Text(title,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
@@ -46,7 +46,7 @@ class RecipeStack extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      "5",
+                      rating,
                       style: TextStyle(
                         color: AppColors.pinkSub,
                         fontSize: 12,
@@ -64,7 +64,7 @@ class RecipeStack extends StatelessWidget {
                       width: 4.w,
                     ),
                     Text(
-                      "15min",
+                      time,
                       style: TextStyle(
                         color: AppColors.pinkSub,
                         fontSize: 12,

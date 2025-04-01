@@ -22,7 +22,7 @@ class TopChefSectionHome extends StatelessWidget {
     false=> Padding(
       padding: EdgeInsets.symmetric(horizontal:36),
       child: GestureDetector(
-        onTap: () => context.go(Routes.topChefs),
+        onTap: () => context.push(Routes.topChefs),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           spacing: 9,
