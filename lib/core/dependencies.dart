@@ -1,5 +1,6 @@
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
+import 'package:recipe_app/core/data/repositories/follow_and_following_repository.dart';
 import 'package:recipe_app/core/data/repositories/review_repository.dart';
 import 'package:recipe_app/core/data/repositories/top_chef_repository.dart';
 import 'package:recipe_app/core/l10n/localization.dart';
@@ -20,5 +21,6 @@ List<SingleChildWidget> providers = [
   Provider(create: (context)=>CategoriesDetailRepositories(client: context.read())),
   ChangeNotifierProvider(create: (context)=>LocalizationViewModel()),
   Provider(create: (context) => OnboardingRepository(client: context.read(),),),
-  Provider(create: (context)=> ReviewRepository(client: context.read()))
+  Provider(create: (context)=> ReviewRepository(client: context.read())),
+  Provider(create: (context)=>FollowersAndFollowingRepository(client: context.read()))
 ];
