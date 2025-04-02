@@ -28,7 +28,7 @@ class ProfileFollowersView extends StatelessWidget {
               case FollowAndFollowerStatus.loading:
                 return Center(child: CircularProgressIndicator());
               case FollowAndFollowerStatus.error:
-                return Text("malumotlarni olib kelishda hatolik bor");
+                return Center(child: Text("malumotlarni olib kelishda hatolik bor"));
               case FollowAndFollowerStatus.success:
                 return Padding(
                   padding: EdgeInsets.symmetric(horizontal: AppSizes.padding36),
