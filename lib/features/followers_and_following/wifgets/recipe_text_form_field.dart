@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../core/utils/colors.dart';
 
 class RecipeTextFormField extends StatelessWidget {
@@ -8,19 +7,22 @@ class RecipeTextFormField extends StatelessWidget {
     super.key,
     required this.text,
     this.size = const Size(355, 34),
-    required this.textController
+    required this.textController,
+    this.isNum = false,
   });
 
   final String text;
-
   final Size size;
   final TextEditingController textController;
+  final bool isNum;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox.fromSize(
       size: size,
       child: TextFormField(
+        clipBehavior: Clip.hardEdge,
+        keyboardType: isNum ? TextInputType.number : TextInputType.text,
         minLines: 2,
         maxLines: 3,
         controller: textController,

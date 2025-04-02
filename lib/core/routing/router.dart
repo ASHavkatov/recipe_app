@@ -20,6 +20,7 @@ import 'package:recipe_app/features/followers_and_following/pages/follow_view.da
 import 'package:recipe_app/features/followers_and_following/pages/profile_followers_view.dart';
 import 'package:recipe_app/features/home/presentation/pages/home_view.dart';
 import 'package:recipe_app/features/notifications/presentation/pages/notifications_view.dart';
+import 'package:recipe_app/features/recipe_create_y/presentation/pages/recipe_create_view_y.dart';
 import 'package:recipe_app/features/recipe_detail/presentation/manager/recipe_detail_viewmodel.dart';
 import 'package:recipe_app/features/recipe_detail/presentation/pages/recipe_detail_view.dart';
 import 'package:recipe_app/features/review/presentation/manager/reviews/reviews_bloc.dart';
@@ -44,7 +45,7 @@ import '../../main.dart';
 
 final GoRouter router = GoRouter(
   navigatorKey: navigatorKey,
-  initialLocation: Routes.login,
+  initialLocation: Routes.createRecipes,
   routes: [
     GoRoute(
       path: Routes.home,
@@ -52,7 +53,7 @@ final GoRouter router = GoRouter(
         transitionDuration: Duration(seconds: 2),
         child: HomeView(),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
-          final curve = CurvedAnimation(parent: animation, curve: Curves.bounceOut);
+          final curve = CurvedAnimation(parent: animation, curve: Curves.easeIn);
           return SlideTransition(
             position: Tween<Offset>(begin: Offset(1, 0), end: Offset.zero).animate(curve),
             child: child,
@@ -203,6 +204,10 @@ final GoRouter router = GoRouter(
         ),
         child: ProfileFollowersView(),
       ),
+    ),
+    GoRoute(
+      path: Routes.createRecipes,
+      builder: (context, state) => RecipeCreateViewY(),
     ),
   ],
 );
