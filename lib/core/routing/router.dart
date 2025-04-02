@@ -20,13 +20,11 @@ import 'package:recipe_app/features/followers_and_following/blocs/followers_and_
 import 'package:recipe_app/features/followers_and_following/pages/follow_view.dart';
 import 'package:recipe_app/features/home/presentation/pages/home_view.dart';
 import 'package:recipe_app/features/notifications/presentation/pages/notifications_view.dart';
-import 'package:recipe_app/features/profile_followers/presentation/pages/profile_followers_view.dart';
 import 'package:recipe_app/features/recipe_detail/presentation/manager/recipe_detail_viewmodel.dart';
 import 'package:recipe_app/features/recipe_detail/presentation/pages/recipe_detail_view.dart';
 import 'package:recipe_app/features/review/presentation/manager/reviews/reviews_bloc.dart';
 import 'package:recipe_app/features/review/presentation/pages/add_review.dart';
 import 'package:recipe_app/features/review/presentation/pages/review_view.dart';
-import 'package:recipe_app/features/sign_up/data/repositories/sign_repository.dart';
 import 'package:recipe_app/features/sign_up/presentation/pages/complete_profile_view.dart';
 import 'package:recipe_app/features/top_chef_detail/blocs/top_chef_detail_bloc.dart';
 import 'package:recipe_app/features/top_chef_detail/top_chefs_profile_pages/top_chefs_profile_view.dart';
@@ -46,7 +44,7 @@ import '../../main.dart';
 
 final GoRouter router = GoRouter(
   navigatorKey: navigatorKey,
-  initialLocation: Routes.follow,
+  initialLocation: Routes.review,
   routes: [
     GoRoute(
       path: Routes.home,
@@ -70,12 +68,20 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: Routes.review,
-      builder: (context, state) => BlocProvider(
-        create: (context) => ReviewsBloc(
-          recipeRepo: context.read(),
-          recipeId: int.parse(state.pathParameters['recipeId']!),
+      pageBuilder: (context, state) => CustomTransitionPage(
+        transitionDuration: Duration(milliseconds: 50),
+        child: BlocProvider(
+          create: (context) => ReviewsBloc(
+            recipeRepo: context.read(),
+            recipeId: int.tryParse(state.pathParameters['recipeId'] ?? "") ?? 1,
+          ),
+          child: ReviewView(),
         ),
-        child: ReviewView(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) => ScaleTransition(
+          // position: Tween<Offset>(begin: Offset(1, 0), end: Offset(0, 0)).animate(animation),
+          scale: Tween<double>(begin: 2, end: 1).animate(animation),
+          child: child,
+        ),
       ),
     ),
     GoRoute(
@@ -107,8 +113,11 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: Routes.categoriesDetail,
       builder: (context, state) => CategoriesDetailView(
-        viewModel:
-            CategoriesDetailViewModel(repo: context.read(), catsRepo: context.read(), selected: state.extra as CategoryModel),
+        viewModel: CategoriesDetailViewModel(
+          repo: context.read(),
+          catsRepo: context.read(),
+          selected: state.extra as CategoryModel,
+        ),
       ),
     ),
     GoRoute(
@@ -123,12 +132,18 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: Routes.community,
-      builder: (context, state) => ChangeNotifierProvider(
-        create: (context) => CommunityViewModel(
-          communityRepo: context.read(),
-        ),
-        child: CommunityView(),
-      ),
+      pageBuilder: (context, state) => CustomTransitionPage(
+        transitionDuration: Duration(seconds: 2),
+          child: ChangeNotifierProvider(
+            create: (context) => CommunityViewModel(
+              communityRepo: context.read(),
+            ),
+            child: CommunityView(),
+          ),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) => FadeTransition(
+                opacity: animation,
+                child: ScaleTransition(scale: Tween<double>(begin: 2, end: 1).animate(animation),child: child,),
+              )),
     ),
     GoRoute(
       path: Routes.createReview,
