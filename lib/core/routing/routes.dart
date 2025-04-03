@@ -23,5 +23,5 @@ class Routes {
   static const myProfile = '/auth/me';
   static const follow = '/auth/followers';
   static const yourRecipes = '/your-recipe';
-
+  static const createRecipes = '/recipes/create';
 }

@@ -8,10 +8,12 @@ import 'package:recipe_app/features/sign_up/data/models/auth_model.dart';
 class ApiClient {
   late final Dio dio;
 
-  ApiClient() {
-    dio = Dio(BaseOptions(baseUrl: "http://192.168.8.152:8888/api/v1", validateStatus: (status) => true));
+
+    dio = Dio(BaseOptions(baseUrl: "http://0.0.0.0:8888/api/v1", validateStatus: (status) => true));
     dio.interceptors.add(AuthInterceptor());
   }
+
+
 
   Future<List<dynamic>> fetchCommunity(int? limit, String? order, bool descending) async {
     var response = await dio.get('/recipes/community/list?Limit=$limit&Order$order&Descending$descending');

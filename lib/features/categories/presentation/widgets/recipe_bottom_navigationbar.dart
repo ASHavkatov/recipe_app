@@ -66,7 +66,7 @@ class _BottomNavigationBarVanilla extends StatelessWidget {
             width: 15,
             height: 22,
             color: Colors.white,
-            callback: () => context.go(Routes.yourRecipes),
+            callback: () => context.go(Routes.follow),
 
           )
         ],
