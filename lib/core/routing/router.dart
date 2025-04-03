@@ -16,7 +16,6 @@ import 'package:recipe_app/features/chefs/presentation/pages/top_chefs_pages/top
 import 'package:recipe_app/features/community/presentation/manager/community_view_model.dart';
 import 'package:recipe_app/features/community/presentation/pages/community_view.dart';
 import 'package:recipe_app/features/followers_and_following/blocs/followers_and_following_bloc.dart';
-import 'package:recipe_app/features/followers_and_following/pages/follow_view.dart';
 import 'package:recipe_app/features/followers_and_following/pages/profile_followers_view.dart';
 import 'package:recipe_app/features/home/presentation/pages/home_view.dart';
 import 'package:recipe_app/features/notifications/presentation/pages/notifications_view.dart';
@@ -172,7 +171,7 @@ final GoRouter router = GoRouter(
       builder: (context, state) => BlocProvider(
         create: (context) => TrendingBloc(
           trendRepo: RecipeRepository(
-            client: ApiClient(),
+            client: context.read(),
           ),
         ),
         child: TrendingRecipesView(),
@@ -183,7 +182,7 @@ final GoRouter router = GoRouter(
       builder: (context, state) => BlocProvider(
         create: (context) => NotificationsBloc(
           repo: NotificationsRepository(
-            client: ApiClient(),
+            client: context.read(),
           ),
         ),
         child: NotificationsView(),
@@ -199,7 +198,7 @@ final GoRouter router = GoRouter(
         create: (context) => TopChefDetailBloc(
           profileId: int.parse(state.pathParameters['profileId']!),
           repo: ChefRepository(
-            client: ApiClient(),
+            client: context.read(),
           ),
         ),
         child: TopChefsProfileView(),
@@ -209,7 +208,7 @@ final GoRouter router = GoRouter(
       path: Routes.yourRecipes,
       builder: (context, state) => BlocProvider(
         create: (context) => YourRecipeBloc(
-          repo: RecipeRepository(client: ApiClient()),
+          repo: RecipeRepository(client: context.read()),
         ),
         child: YourRecipeView(),
       ),

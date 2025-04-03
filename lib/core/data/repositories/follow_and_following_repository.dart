@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:recipe_app/core/client.dart';
 import 'package:recipe_app/core/data/models/followers_and_following_model/followers_and_following_model.dart';
 
+import '../../client.dart';
+
+
 class FollowersAndFollowingRepository {
   FollowersAndFollowingRepository({required this.client});
 
@@ -13,9 +16,11 @@ class FollowersAndFollowingRepository {
     try {
       var response = await client.genericGetRequest('/auth/followers/$id');
       if (response.statusCode == 200) {
+
         var rawFollowers = response.data as List;
         return rawFollowers.map((e) => FollowersAndFollowingModel.fromJson(e)).toList();
       } else {
+        print("${response.statusCode}1111111111");
         throw Exception("Xatolik: ${response.statusMessage ?? "Noma'lum xatolik"}");
       }
     } catch (e) {

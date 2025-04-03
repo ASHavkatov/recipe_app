@@ -6,14 +6,8 @@ import 'package:recipe_app/core/interceptor.dart';
 import 'package:recipe_app/features/sign_up/data/models/auth_model.dart';
 
 class ApiClient {
-  late final Dio dio;
 
-
-    dio = Dio(BaseOptions(baseUrl: "http://0.0.0.0:8888/api/v1", validateStatus: (status) => true));
-    dio.interceptors.add(AuthInterceptor());
-  }
-
-
+  late final Dio dio = Dio(BaseOptions(baseUrl: "http://0.0.0.0:8888/api/v1", validateStatus: (status) => true));
 
   Future<List<dynamic>> fetchCommunity(int? limit, String? order, bool descending) async {
     var response = await dio.get('/recipes/community/list?Limit=$limit&Order$order&Descending$descending');
@@ -21,7 +15,7 @@ class ApiClient {
     return data;
   }
 
-  // Future<>
+// Future<>
   Future<Map<String, dynamic>> fetchMyProfile() async {
     var response = await dio.get("/auth/details/1");
     if (response.statusCode == 200) {
@@ -119,7 +113,7 @@ class ApiClient {
       options: Options(
         headers: {
           "Authorization":
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZHJld0BnbWFpbC5jb20iLCJqdGkiOiI1MGY3OWUzMi04OWExLTQ2ZGEtOWVkMi04NmEwNGY2YTkyNjgiLCJ1c2VyaWQiOiIxIiwiZXhwIjoxODM2OTk3OTMwLCJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJhdWRpZW5jZSJ9.fPJTubTifP1m4F1U9NgbOBiOmUg_fQr_tRadPHSfz10"
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZHJld0BnbWFpbC5jb20iLCJqdGkiOiI1MGY3OWUzMi04OWExLTQ2ZGEtOWVkMi04NmEwNGY2YTkyNjgiLCJ1c2VyaWQiOiIxIiwiZXhwIjoxODM2OTk3OTMwLCJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJhdWRpZW5jZSJ9.fPJTubTifP1m4F1U9NgbOBiOmUg_fQr_tRadPHSfz10"
         },
       ),
       data: formData,
@@ -138,7 +132,7 @@ class ApiClient {
       options: Options(
         headers: {
           "Authorization":
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZHJld0BnbWFpbC5jb20iLCJqdGkiOiI1MGY3OWUzMi04OWExLTQ2ZGEtOWVkMi04NmEwNGY2YTkyNjgiLCJ1c2VyaWQiOiIxIiwiZXhwIjoxODM2OTk3OTMwLCJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJhdWRpZW5jZSJ9.fPJTubTifP1m4F1U9NgbOBiOmUg_fQr_tRadPHSfz10"
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZHJld0BnbWFpbC5jb20iLCJqdGkiOiI1MGY3OWUzMi04OWExLTQ2ZGEtOWVkMi04NmEwNGY2YTkyNjgiLCJ1c2VyaWQiOiIxIiwiZXhwIjoxODM2OTk3OTMwLCJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJhdWRpZW5jZSJ9.fPJTubTifP1m4F1U9NgbOBiOmUg_fQr_tRadPHSfz10"
         },
       ),
       data: formData,
@@ -207,7 +201,9 @@ class ApiClient {
 
   Future uploadProfilePhoto(File file) async {
     FormData formData = FormData.fromMap(
-      {'file': await MultipartFile.fromFile(file.path, filename: file.path.split('/').last)},
+      {'file': await MultipartFile.fromFile(file.path, filename: file.path
+          .split('/')
+          .last)},
     );
   }
 }
