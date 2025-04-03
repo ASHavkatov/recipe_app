@@ -21,6 +21,7 @@ import 'package:recipe_app/features/followers_and_following/pages/profile_follow
 import 'package:recipe_app/features/home/presentation/pages/home_view.dart';
 import 'package:recipe_app/features/notifications/presentation/pages/notifications_view.dart';
 import 'package:recipe_app/features/recipe_create_y/presentation/pages/recipe_create_view_y.dart';
+
 import 'package:recipe_app/features/recipe_detail/presentation/manager/recipe_detail_viewmodel.dart';
 import 'package:recipe_app/features/recipe_detail/presentation/pages/recipe_detail_view.dart';
 import 'package:recipe_app/features/review/presentation/manager/reviews/reviews_bloc.dart';
@@ -45,7 +46,8 @@ import '../../main.dart';
 
 final GoRouter router = GoRouter(
   navigatorKey: navigatorKey,
-  initialLocation: Routes.createRecipes,
+  initialLocation: Routes.review,
+
   routes: [
     GoRoute(
       path: Routes.home,
@@ -69,12 +71,20 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: Routes.review,
-      builder: (context, state) => BlocProvider(
-        create: (context) => ReviewsBloc(
-          recipeRepo: context.read(),
-          recipeId: int.parse(state.pathParameters['recipeId']!),
+      pageBuilder: (context, state) => CustomTransitionPage(
+        transitionDuration: Duration(milliseconds: 50),
+        child: BlocProvider(
+          create: (context) => ReviewsBloc(
+            recipeRepo: context.read(),
+            recipeId: int.tryParse(state.pathParameters['recipeId'] ?? "") ?? 1,
+          ),
+          child: ReviewView(),
         ),
-        child: ReviewView(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) => ScaleTransition(
+          // position: Tween<Offset>(begin: Offset(1, 0), end: Offset(0, 0)).animate(animation),
+          scale: Tween<double>(begin: 2, end: 1).animate(animation),
+          child: child,
+        ),
       ),
     ),
     GoRoute(
@@ -106,8 +116,11 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: Routes.categoriesDetail,
       builder: (context, state) => CategoriesDetailView(
-        viewModel:
-            CategoriesDetailViewModel(repo: context.read(), catsRepo: context.read(), selected: state.extra as CategoryModel),
+        viewModel: CategoriesDetailViewModel(
+          repo: context.read(),
+          catsRepo: context.read(),
+          selected: state.extra as CategoryModel,
+        ),
       ),
     ),
     GoRoute(
@@ -122,12 +135,18 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: Routes.community,
-      builder: (context, state) => ChangeNotifierProvider(
-        create: (context) => CommunityViewModel(
-          communityRepo: context.read(),
-        ),
-        child: CommunityView(),
-      ),
+      pageBuilder: (context, state) => CustomTransitionPage(
+        transitionDuration: Duration(seconds: 2),
+          child: ChangeNotifierProvider(
+            create: (context) => CommunityViewModel(
+              communityRepo: context.read(),
+            ),
+            child: CommunityView(),
+          ),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) => FadeTransition(
+                opacity: animation,
+                child: ScaleTransition(scale: Tween<double>(begin: 2, end: 1).animate(animation),child: child,),
+              )),
     ),
     GoRoute(
       path: Routes.createReview,

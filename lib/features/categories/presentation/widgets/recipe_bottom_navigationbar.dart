@@ -59,7 +59,7 @@ class _BottomNavigationBarVanilla extends StatelessWidget {
             width: 27,
             height: 27,
             color: Colors.white,
-            callback: () => context.go('/categories'),
+            callback: () => context.go(Routes.review),
           ),
           RecipeIconButton(
             image: "assets/svg/profile.svg",
