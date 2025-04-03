@@ -4,6 +4,10 @@ import 'package:recipe_app/core/core.dart';
 import 'package:recipe_app/core/presentation/widgets/recipe_elevated_button.dart';
 import 'package:recipe_app/features/categories/presentation/widgets/recipe_bottom_navigationbar.dart';
 import 'package:recipe_app/features/categories_detail/presentation/widgets/recipe_icon_button_container.dart';
+import 'package:recipe_app/features/followers_and_following/wifgets/three_dots_button.dart';
+import 'package:recipe_app/features/recipe_create_y/presentation/widgets/create_recipe_delete_button.dart';
+import 'package:recipe_app/features/recipe_create_y/presentation/widgets/create_recipe_ingredient.dart';
+import 'package:recipe_app/features/recipe_create_y/presentation/widgets/create_recipe_instruction.dart';
 import 'package:recipe_app/features/review/presentation/widgets/recipe_review_app_bar.dart';
 
 import '../../../followers_and_following/wifgets/recipe_text_form_field.dart';
@@ -16,6 +20,9 @@ class RecipeCreateViewY extends StatelessWidget {
     TextEditingController titleController = TextEditingController();
     TextEditingController descriptionController = TextEditingController();
     TextEditingController timeController = TextEditingController();
+    TextEditingController amountController = TextEditingController();
+    TextEditingController ingredientController = TextEditingController();
+    TextEditingController instructionController = TextEditingController();
 
     return Scaffold(
       appBar: RecipeReviewAppBar(title: "Create Recipe"),
@@ -86,9 +93,9 @@ class RecipeCreateViewY extends StatelessWidget {
                 textController: titleController,
               ),
               Text(
-        "Description",
-        style: TextStyle(fontWeight: FontWeight.w500, fontFamily: "Poppins", fontSize: 15, color: Colors.white),
-      ),
+                "Description",
+                style: TextStyle(fontWeight: FontWeight.w500, fontFamily: "Poppins", fontSize: 15, color: Colors.white),
+              ),
               RecipeTextFormField(
                 text: "Recipe Description",
                 textController: descriptionController,
@@ -98,7 +105,40 @@ class RecipeCreateViewY extends StatelessWidget {
                 "Time Recipe",
                 style: TextStyle(fontWeight: FontWeight.w500, fontFamily: "Poppins", fontSize: 15, color: Colors.white),
               ),
-              RecipeTextFormField(text: "1 hour, 30min, ...", textController: timeController)
+              RecipeTextFormField(text: "1 hour, 30min, ...", textController: timeController),
+              Text(
+                "Ingredient",
+                style: TextStyle(fontWeight: FontWeight.w500, fontFamily: "Poppins", fontSize: 15, color: Colors.white),
+              ),
+              CreateRecipeIngredient(
+                amountController: amountController,
+                ingredientController: ingredientController,
+              ),
+              SizedBox(
+                height: 20.h,
+              ),
+              RecipeElevatedButton(
+                text: "+ Add Ingredient",
+                callback: () {},
+                backgroundColor: AppColors.redPinkMain,
+                foregroundColor: Colors.black,
+                size: Size(211.w, 35.h),
+              ),
+              SizedBox(height: 20.h,),
+              Text(
+                "Instructions",
+                style: TextStyle(fontWeight: FontWeight.w500, fontFamily: "Poppins", fontSize: 15, color: Colors.white),
+              ),
+              SizedBox(height: 20.h,),
+              CreateRecipeInstruction(instructionController: instructionController),
+              SizedBox(height: 25.h,),
+              RecipeElevatedButton(
+                text: "+ Add Instruction",
+                callback: () {},
+                backgroundColor: AppColors.redPinkMain,
+                foregroundColor: Colors.black,
+                size: Size(211.w, 35.h),
+              ),
             ],
           )
         ],

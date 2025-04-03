@@ -70,7 +70,7 @@ class ProfileFollowersView extends StatelessWidget {
                                 userName: user.username,
                                 name: user.firstName,
                                 userImage: user.profilePhoto,
-                                following: true,
+                                following: false,
                               )
                             ],
                           );
