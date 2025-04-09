@@ -84,7 +84,7 @@ class RecipeCreateIngredientItem extends StatelessWidget {
           ),
         ),
         RecipeIconButtonContainer(
-          image: 'assets/icons/bin.svg',
+          image: 'assets/svg/delete.svg',
           callback: callback,
           iconWidth: 30,
           iconHeight: 30,
